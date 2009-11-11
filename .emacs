@@ -8,7 +8,6 @@
 ;; (require 'startup)
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 
-(add-to-list 'load-path "~/.emacs.d/site-lisp/symfony")
 
 (defvar running-on-windows (memq system-type '(windows-nt cygwin)))
 (defvar running-on-linux (not running-on-windows))
@@ -18,7 +17,11 @@
 ;; make emacs use the clipboard
 (if running-on-linux
     (setq x-select-enable-clipboard t)
-  (setq interprogram-paste-function 'x-cut-buffer-or-selection-value))
+  (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+  ;(setq explicit-shell-file-name "/bin/bash")
+  ;(setenv "SHELL" "/bin/bash") 
+
+)
 
 (if running-on-windows
     (custom-set-variables
@@ -32,17 +35,17 @@
 
 (require 'color-theme)
 (require 'psvn)
-(require 'ruby-mode)
+(require 'git)
 (require 'paren-glint)
 (require 'mmm-mode)
 (require 'mmm-auto)
 (require 'lorem-ipsum)
-(require 'rails)
+;;(require 'rails)
 (load "rails" t)
 (require 'cc-mode)
-(require 'flash-compile)
+;;(require 'flash-compile)
 ;;(require 'symfony)
-(require 'w32-find-dired)
+;;(require 'w32-find-dired)
 
 
 ;;php jazz
@@ -200,9 +203,8 @@
 ;;(set-face-background 'mmm-default-submode-face nil);;Gets rid of background
 
 ;;js jazz
-(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
-(autoload 'javascript-mode "javascript" nil t)
-(add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil html-js))
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;;lisp jazz
 (load "elisp-config" t)
@@ -210,11 +212,11 @@
 
 ;;__________________________________________________________________________
 ;; SLIME Setup
-(setq load-path (append (list "~/.emacs.d/site-lisp/slime")
-                        load-path))
-(require 'slime)
-(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+;;(setq load-path (append (list "~/.emacs.d/site-lisp/slime")
+;;                        load-path))
+;;(require 'slime)
+;;(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+;;(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 ;; If you don't want eldoc-like behavior, comment out the following line
 ;;(slime-autodoc-mode)
 ;;__________________________________________________________________________
@@ -234,6 +236,7 @@
 (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 (eval-after-load "python-mode" '(load "python-config" t))
+;;(require 'django-html-mode)
 
 ;;csv jazz
 (add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
@@ -250,10 +253,10 @@
 
 ;;ruby jazz
 (show-paren-mode 1)
-(require 'snippet)
-(require 'find-recursive)
-(add-to-list 'load-path "C:/tools/ruby/lib")
-(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
+;;(require 'snippet)
+;;(require 'find-recursive)
+;;(add-to-list 'load-path "C:/tools/ruby/lib")
+;;(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 
 ;;Add DVC Requirements
 ;;(add-to-list 'load-path "~/site-lisp/dvc/lisp")
@@ -303,3 +306,6 @@
 (local-set-key "\M-\t" 'ispell-complete-word)))
 ; enable tex parser, also very helpful
 (setq ispell-enable-tex-parser t)
+(server-start)
+
+
