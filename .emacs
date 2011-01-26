@@ -8,6 +8,10 @@
 ;; (require 'startup)
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 
+(when (equal system-type 'darwin)
+  (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
+  (push "/opt/local/bin" exec-path))
+
 
 (defvar running-on-windows (memq system-type '(windows-nt cygwin)))
 (defvar running-on-linux (not running-on-windows))
@@ -132,6 +136,7 @@
 (global-set-key "\C-s" 'isearch-forward-regexp)
 (global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\C-x\C-j" 'goto-line)
+(global-set-key "\C-x\C-g" 'magit-status)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key [f8] 'mmm-parse-buffer)
 (scroll-bar-mode nil)
