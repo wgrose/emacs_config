@@ -34,32 +34,12 @@
 
 
 (require 'color-theme)
-(require 'psvn)
-(require 'git)
+(require 'magit)
 (require 'paren-glint)
 (require 'mmm-mode)
 (require 'mmm-auto)
 (require 'lorem-ipsum)
-;;(require 'rails)
-(load "rails" t)
 (require 'cc-mode)
-;;(require 'flash-compile)
-;;(require 'symfony)
-;;(require 'w32-find-dired)
-
-
-;;php jazz
-(setq mmm-global-mode 'maybe)
-(mmm-add-mode-ext-class nil "\\.php3?\\'" 'html-php)
-(mmm-add-classes
- '((html-php
-    :submode php-mode
-    :front "<\\?\\(php\\)?"
-    :back "\\?>"
-    )))
-(autoload 'php-mode "php-mode" "PHP editing mode" t)
-;;(add-to-list 'auto-mode-alist '("\\.php3?\\'" . sgml-html-mode))
-
 
 ;;general jazz
 ;;color theme
