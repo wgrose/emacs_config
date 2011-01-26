@@ -47,8 +47,8 @@
 
 ;;general jazz
 ;;color theme
-;;(color-theme-subtle-hacker)
-(color-theme-high-contrast)
+(color-theme-subtle-hacker)
+;;(color-theme-high-contrast)
 
 ;; Put autosave files (ie #foo#) in one place, *not*
 ;; scattered all over the file system!
