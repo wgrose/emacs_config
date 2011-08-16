@@ -191,7 +191,20 @@
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-;;lisp jazz
+;;python jazz
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+(setq interpreter-mode-alist (cons '("python" . python-mode)
+                                   interpreter-mode-alist))
+;; Python Hook to set indentation.
+(add-hook 'python-mode-hook
+          (function (lambda ()
+                      (setq indent-tabs-mode nil
+                            tab-width 2))))
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+
+(global-font-lock-mode t)
+(setq font-lock-maximum-decoration t)
+
 (load "elisp-config" t)
 
 
