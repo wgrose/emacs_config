@@ -1,0 +1,2636 @@
+find "/Users/wgrose/repos/emacs_config/cedet"/common -type f \
+	-name "*-loaddefs.el" \
+	-print -exec rm -f {} \;
+find "/Users/wgrose/repos/emacs_config/cedet"/speedbar -type f \
+	-name "*-loaddefs.el" \
+	-print -exec rm -f {} \;
+find "/Users/wgrose/repos/emacs_config/cedet"/eieio -type f \
+	-name "*-loaddefs.el" \
+	-print -exec rm -f {} \;
+find "/Users/wgrose/repos/emacs_config/cedet"/semantic -type f \
+	-name "*-loaddefs.el" \
+	-print -exec rm -f {} \;
+find "/Users/wgrose/repos/emacs_config/cedet"/srecode -type f \
+	-name "*-loaddefs.el" \
+	-print -exec rm -f {} \;
+find "/Users/wgrose/repos/emacs_config/cedet"/ede -type f \
+	-name "*-loaddefs.el" \
+	-print -exec rm -f {} \;
+find "/Users/wgrose/repos/emacs_config/cedet"/cogre -type f \
+	-name "*-loaddefs.el" \
+	-print -exec rm -f {} \;
+find "/Users/wgrose/repos/emacs_config/cedet"/contrib -type f \
+	-name "*-loaddefs.el" \
+	-print -exec rm -f {} \;
+cd "/Users/wgrose/repos/emacs_config/cedet"/common && make  EMACS="emacs" EMACSFLAGS="-batch --no-site-file" SHELL="bash"
+for loadpath in . ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> autoloads-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l autoloads-compile-script -f cedet-batch-update-autoloads cedet-loaddefs.el .
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-loaddefs.el
+Generating autoloads for cedet-autogen.el...
+Generating autoloads for cedet-autogen.el...done
+Generating autoloads for cedet-compat.el...
+Generating autoloads for cedet-compat.el...done
+Generating autoloads for cedet-cscope.el...
+Generating autoloads for cedet-cscope.el...done
+Generating autoloads for cedet-edebug.el...
+Generating autoloads for cedet-edebug.el...done
+Generating autoloads for cedet-files.el...
+Generating autoloads for cedet-files.el...done
+Generating autoloads for cedet-global.el...
+Generating autoloads for cedet-global.el...done
+Generating autoloads for cedet-graphviz.el...
+Generating autoloads for cedet-graphviz.el...done
+Generating autoloads for cedet-idutils.el...
+Generating autoloads for cedet-idutils.el...done
+Generating autoloads for cedet-load.el...
+Generating autoloads for cedet-load.el...done
+Generating autoloads for cedet-utests.el...
+Generating autoloads for cedet-utests.el...done
+Generating autoloads for cedet.el...
+Generating autoloads for cedet.el...done
+Generating autoloads for data-debug.el...
+Generating autoloads for data-debug.el...done
+Generating autoloads for ezimage.el...
+Generating autoloads for ezimage.el...done
+Generating autoloads for fame.el...
+Generating autoloads for fame.el...done
+Generating autoloads for inversion.el...
+Generating autoloads for inversion.el...done
+Generating autoloads for mode-local.el...
+Generating autoloads for mode-local.el...done
+Generating autoloads for pprint.el...
+Generating autoloads for pprint.el...done
+Generating autoloads for pulse.el...
+Generating autoloads for pulse.el...done
+Generating autoloads for working.el...
+Generating autoloads for working.el...done
+Saving file /Users/wgrose/repos/emacs_config/cedet/common/cedet-loaddefs.el...
+Loading vc-git...
+Updating header...
+Updating header...done
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-loaddefs.el
+(No changes need to be saved)
+for loadpath in . ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> init-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l init-compile-script -f batch-byte-compile cedet-load.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-load.elc
+for loadpath in . ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> setup-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l setup-compile-script -f batch-byte-compile cedet.el
+
+In toplevel form:
+cedet.el:78:45:Warning: reference to free variable `cedet-version'
+
+In end of data:
+cedet.el:291:1:Warning: the following functions might not be defined at
+    runtime: inversion-require-emacs, inversion-add-to-load-path
+cedet.el:291:1:Warning: the function `info-initialize' is not known to be
+    defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet.elc
+for loadpath in . ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> common-compile-script; \
+	done;
+for preload in cedet-compat.el; do \
+	   echo "(load \"$preload\")" >> common-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l common-compile-script -f batch-byte-compile cedet-autogen.el cedet-compat.el ezimage.el inversion.el pprint.el fame.el working.el cedet-edebug.el mode-local.el cedet-files.el pulse.el data-debug.el cedet-global.el cedet-idutils.el cedet-cscope.el cedet-graphviz.el
+Loading /Users/wgrose/repos/emacs_config/cedet/common/cedet-compat.el (source)...
+
+In toplevel form:
+cedet-autogen.el:62:9:Warning: `find-file-hooks' is an obsolete variable (as
+    of Emacs 22.1); use `find-file-hook' instead.
+
+In cedet-update-autoloads:
+cedet-autogen.el:205:11:Warning: `write-contents-hooks' is an obsolete
+    variable (as of Emacs 22.1); use `write-contents-functions' instead.
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-autogen.elc
+
+In toplevel form:
+cedet-compat.el:174:32:Warning: Function `remove-duplicates' from cl package
+    called at runtime
+cedet-compat.el:174:32:Warning: Function `delete-if-not' from cl package
+    called at runtime
+cedet-compat.el:168:63:Warning: Function `remove-duplicates' from cl package
+    called at runtime
+cedet-compat.el:168:63:Warning: Function `delete-if-not' from cl package
+    called at runtime
+
+In end of data:
+cedet-compat.el:251:1:Warning: the following functions are not known to be
+    defined: charsets-in-string, query-coding-string, charsets-in-region,
+    query-coding-region
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-compat.elc
+
+In ezimage-image-association-dump:
+ezimage.el:311:4:Warning: `save-excursion' defeated by `set-buffer'
+
+In ezimage-image-dump:
+ezimage.el:335:4:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+ezimage.el:368:1:Warning: the following functions are not known to be defined:
+    locate-data-directory, ezimage-find-image-on-load-path
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/ezimage.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/inversion.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/pprint.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/fame.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/working.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-edebug.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/mode-local.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-files.elc
+
+In pulse-test:
+pulse.el:214:12:Warning: cedet-called-interactively-p called with 0 arguments,
+    but requires 1
+pulse.el:231:12:Warning: cedet-called-interactively-p called with 0 arguments,
+    but requires 1
+pulse.el:225:50:Warning: cedet-called-interactively-p called with 0 arguments,
+    but requires 1
+pulse.el:230:50:Warning: cedet-called-interactively-p called with 0 arguments,
+    but requires 1
+pulse.el:245:10:Warning: cedet-called-interactively-p called with 0 arguments,
+    but requires 1
+
+In end of data:
+pulse.el:413:1:Warning: the following functions are not known to be defined:
+    pulse-make-overlay, pulse-overlay-live-p, pulse-overlay-delete,
+    pulse-overlay-put, pulse-overlay-get
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/pulse.elc
+
+In end of data:
+data-debug.el:1105:1:Warning: the function `mouse-set-point' is not known to
+    be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/data-debug.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-global.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-idutils.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-cscope.elc
+
+In cedet-graphviz-dot-call:
+cedet-graphviz.el:54:19:Warning: `save-excursion' defeated by `set-buffer'
+
+In cedet-graphviz-neato-call:
+cedet-graphviz.el:67:19:Warning: `save-excursion' defeated by `set-buffer'
+
+In cedet-graphviz-dot-version-check:
+cedet-graphviz.el:102:19:Warning: `save-excursion' defeated by `set-buffer'
+cedet-graphviz.el:112:16:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-graphviz.elc
+for loadpath in . ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> tests-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l tests-compile-script -f batch-byte-compile cedet-utests.el
+Setting up CEDET packages...
+Setting up CEDET packages...done
+
+In cedet-utest:
+cedet-utests.el:153:19:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In cedet-utest-batch:
+cedet-utests.el:193:21:Warning: assignment to free variable
+    `srecode-map-save-file'
+
+In cedet-utest-log-setup:
+cedet-utests.el:238:19:Warning: `save-excursion' defeated by `set-buffer'
+
+In cedet-utest-log-shutdown-msg:
+cedet-utests.el:278:53:Warning: `save-excursion' defeated by `set-buffer'
+
+In cedet-utest-post-command-hook:
+cedet-utests.el:310:10:Warning: `save-excursion' defeated by `set-buffer'
+
+In cedet-utest-add-log-item-start:
+cedet-utests.el:327:38:Warning: `save-excursion' defeated by `set-buffer'
+
+In cedet-utest-add-log-item-done:
+cedet-utests.el:347:32:Warning: `save-excursion' defeated by `set-buffer'
+
+In cedet-utest-log:
+cedet-utests.el:384:30:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/repos/emacs_config/cedet/common/cedet-utests.elc
+make -C icons
+make[2]: Nothing to be done for `all'.
+cd "/Users/wgrose/repos/emacs_config/cedet"/speedbar && make  EMACS="emacs" EMACSFLAGS="-batch --no-site-file" SHELL="bash"
+for loadpath in . ../common/ ; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> autoloads-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l autoloads-compile-script -f cedet-batch-update-autoloads speedbar-loaddefs.el .
+Wrote /Users/wgrose/repos/emacs_config/cedet/speedbar/speedbar-loaddefs.el
+Generating autoloads for bigclock.el...
+Generating autoloads for bigclock.el...done
+Generating autoloads for dframe.el...
+Generating autoloads for dframe.el...done
+Generating autoloads for rpm.el...
+Generating autoloads for rpm.el...done
+Generating autoloads for sb-ant.el...
+Generating autoloads for sb-ant.el...done
+Generating autoloads for sb-gud.el...
+Generating autoloads for sb-gud.el...done
+Generating autoloads for sb-html.el...
+Generating autoloads for sb-html.el...done
+Generating autoloads for sb-image.el...
+Generating autoloads for sb-image.el...done
+Generating autoloads for sb-info.el...
+Generating autoloads for sb-info.el...done
+Generating autoloads for sb-rmail.el...
+Generating autoloads for sb-rmail.el...done
+Generating autoloads for sb-texinfo.el...
+Generating autoloads for sb-texinfo.el...done
+Generating autoloads for sb-w3.el...
+Generating autoloads for sb-w3.el...done
+Generating autoloads for speedbar-load.el...
+Generating autoloads for speedbar-load.el...done
+Generating autoloads for speedbar.el...
+Generating autoloads for speedbar.el...done
+Saving file /Users/wgrose/repos/emacs_config/cedet/speedbar/speedbar-loaddefs.el...
+Loading vc-git...
+Updating header...
+Updating header...done
+Wrote /Users/wgrose/repos/emacs_config/cedet/speedbar/speedbar-loaddefs.el
+(No changes need to be saved)
+for loadpath in . ../common/ ; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> init-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l init-compile-script -f batch-byte-compile speedbar-load.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/speedbar/speedbar-load.elc
+for loadpath in . ../common/ ; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> speedbar-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l speedbar-compile-script -f batch-byte-compile dframe.el speedbar.el
+
+In dframe-frame-mode:
+dframe.el:315:29:Warning: `make-variable-buffer-local' should be called at
+    toplevel
+dframe.el:291:38:Warning: `make-variable-buffer-local' should be called at
+    toplevel
+dframe.el:296:17:Warning: `save-excursion' defeated by `set-buffer'
+dframe.el:309:19:Warning: assignment to free variable `mouse-motion-handler'
+dframe.el:328:15:Warning: assignment to free variable `auto-show-mode'
+dframe.el:407:50:Warning: reference to free variable
+    `x-pointer-top-left-arrow'
+dframe.el:409:34:Warning: reference to free variable `x-pointer-hand2'
+
+In dframe-reposition-frame-emacs:
+dframe.el:512:33:Warning: reference to free variable `right-margin'
+
+In dframe-detach:
+dframe.el:539:43:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+dframe.el:1035:1:Warning: the following functions are not known to be defined:
+    event-button, dframe-frame-parameter, x-display-pixel-width,
+    x-display-pixel-height, x-display-height, face-height,
+    dframe-mouse-event-p, delete-itimer, start-itimer, popup-mode-menu,
+    event-closest-point, misc-user-event-p, next-event, dispatch-event,
+    mouse-set-point, mouse-major-mode-menu, event-glyph-extent,
+    extent-end-position
+Wrote /Users/wgrose/repos/emacs_config/cedet/speedbar/dframe.elc
+
+In speedbar-detach:
+speedbar.el:983:60:Warning: `save-excursion' defeated by `set-buffer'
+
+In speedbar-set-mode-line-format:
+speedbar.el:1115:12:Warning: `save-excursion' defeated by `set-buffer'
+
+In speedbar-reconfigure-keymaps:
+speedbar.el:1198:36:Warning: `save-excursion' defeated by `set-buffer'
+
+In speedbar-restricted-move:
+speedbar.el:1263:37:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+speedbar.el:1270:44:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+
+In speedbar-item-info-tag-helper:
+speedbar.el:1468:50:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+
+In speedbar-add-localized-speedbar-support:
+speedbar.el:1800:19:Warning: `save-excursion' defeated by `set-buffer'
+
+In speedbar-remove-localized-speedbar-support:
+speedbar.el:1831:52:Warning: `save-excursion' defeated by `set-buffer'
+
+In speedbar-create-tag-hierarchy:
+speedbar.el:2322:68:Warning: `save-excursion' defeated by `set-buffer'
+
+In speedbar-check-vc-this-line:
+speedbar.el:2902:14:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+
+In speedbar-check-obj-this-line:
+speedbar.el:3004:14:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+
+In speedbar-line-file:
+speedbar.el:3115:28:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+
+In speedbar-files-line-directory:
+speedbar.el:3188:26:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+
+In speedbar-directory-line:
+speedbar.el:3226:22:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+
+In speedbar-delete-subblock:
+speedbar.el:3364:25:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+
+In speedbar-center-buffer-smartly:
+speedbar.el:3534:28:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+
+In speedbar-extract-one-symbol:
+speedbar.el:3768:26:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+
+In speedbar-buffer-buttons-engine:
+speedbar.el:3871:52:Warning: `save-excursion' defeated by `set-buffer'
+
+In speedbar-buffers-tail-notes:
+speedbar.el:3912:13:Warning: `save-excursion' defeated by `set-buffer'
+
+In speedbar-buffers-item-info:
+speedbar.el:3925:60:Warning: `save-excursion' defeated by `set-buffer'
+speedbar.el:3925:68:Warning: `save-excursion' defeated by `set-buffer'
+
+In speedbar-buffers-line-directory:
+speedbar.el:3945:51:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+speedbar.el:4158:1:Warning: the following functions are not known to be
+    defined: inversion-test, speedbar-mode-line-update, set-buffer-menubar,
+    mouse-set-point, pulse-momentary-highlight-one-line,
+    speedbar-highlight-on-tag-line-internal, speedbar-make-overlay,
+    speedbar-overlay-put, speedbar-delete-overlay
+Wrote /Users/wgrose/repos/emacs_config/cedet/speedbar/speedbar.elc
+cd "/Users/wgrose/repos/emacs_config/cedet"/eieio && make  EMACS="emacs" EMACSFLAGS="-batch --no-site-file" SHELL="bash"
+for loadpath in . ../common/  ../speedbar/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> autoloads-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l autoloads-compile-script -f cedet-batch-update-autoloads eieio-loaddefs.el .
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/eieio-loaddefs.el
+Generating autoloads for chart.el...
+Generating autoloads for chart.el...done
+Generating autoloads for eieio-base.el...
+Generating autoloads for eieio-base.el...done
+Generating autoloads for eieio-comp.el...
+Generating autoloads for eieio-comp.el...done
+Generating autoloads for eieio-custom.el...
+Generating autoloads for eieio-custom.el...done
+Generating autoloads for eieio-datadebug.el...
+Generating autoloads for eieio-datadebug.el...done
+Generating autoloads for eieio-doc.el...
+Generating autoloads for eieio-doc.el...done
+Generating autoloads for eieio-load.el...
+Generating autoloads for eieio-load.el...done
+Generating autoloads for eieio-opt.el...
+Generating autoloads for eieio-opt.el...done
+Generating autoloads for eieio-perftest.el...
+Generating autoloads for eieio-perftest.el...done
+Generating autoloads for eieio-speedbar.el...
+Generating autoloads for eieio-speedbar.el...done
+Generating autoloads for eieio-test-methodinvoke.el...
+Generating autoloads for eieio-test-methodinvoke.el...done
+Generating autoloads for eieio-test-mro.el...
+Generating autoloads for eieio-test-mro.el...done
+Generating autoloads for eieio-tests.el...
+Generating autoloads for eieio-tests.el...done
+Generating autoloads for eieio.el...
+Generating autoloads for eieio.el...done
+Generating autoloads for linemark.el...
+Generating autoloads for linemark.el...done
+Generating autoloads for lmcompile.el...
+Generating autoloads for lmcompile.el...done
+Saving file /Users/wgrose/repos/emacs_config/cedet/eieio/eieio-loaddefs.el...
+Loading vc-git...
+Updating header...
+Updating header...done
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/eieio-loaddefs.el
+(No changes need to be saved)
+for loadpath in . ../common/  ../speedbar/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> init-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l init-compile-script -f batch-byte-compile eieio-load.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/eieio-load.elc
+for loadpath in . ../common/  ../speedbar/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> eieio-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> eieio-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l eieio-compile-script -f batch-byte-compile eieio.el eieio-comp.el eieio-opt.el eieio-custom.el eieio-doc.el eieio-base.el eieio-datadebug.el
+Loading cedet-compat...
+
+In toplevel form:
+eieio.el:52:1:Warning: cl package required at runtime
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/eieio.elc
+
+In byte-compile-file-form-defmethod:
+eieio-comp.el:96:35:Warning: reference to free variable `outbuffer'
+eieio-comp.el:101:47:Warning: reference to free variable `filename'
+
+In end of data:
+eieio-comp.el:201:1:Warning: the following functions are not known to be
+    defined: compiled-function-arglist, compiled-function-instructions,
+    compiled-function-constants, compiled-function-stack-depth,
+    compiled-function-doc-string, compiled-function-interactive
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/eieio-comp.elc
+
+In eieio-browse:
+eieio-opt.el:47:20:Warning: `save-excursion' defeated by `set-buffer'
+
+In eieio-describe-class:
+eieio-opt.el:85:23:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+eieio-opt.el:162:36:Warning: `save-excursion' defeated by `set-buffer'
+
+In eieio-describe-generic:
+eieio-opt.el:323:23:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+eieio-opt.el:382:27:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/eieio-opt.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/eieio-custom.elc
+
+In eieiodoc-one-node:
+eieio-doc.el:118:15:Warning: reference to free variable `indexstring'
+eieio-doc.el:130:56:Warning: reference to free variable `root-class'
+eieio-doc.el:138:42:Warning: reference to free variable `rclass'
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/eieio-doc.elc
+
+In eieio-persistent-read:
+eieio-base.el:248:8:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/eieio-base.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/eieio-datadebug.elc
+for loadpath in . ../common/  ../speedbar/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> examples-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> examples-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l examples-compile-script -f batch-byte-compile chart.el eieio-speedbar.el linemark.el lmcompile.el
+Loading cedet-compat...
+
+In chart-new-buffer:
+chart.el:136:26:Warning: `save-excursion' defeated by `set-buffer'
+
+In chart-goto-xy:
+chart.el:531:27:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+
+In end of data:
+chart.el:769:1:Warning: the function `x-display-color-cells' is not known to
+    be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/chart.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/eieio-speedbar.elc
+
+In linemark-entry::linemark-display:
+linemark.el:295:31:Warning: `save-excursion' defeated by `set-buffer'
+linemark.el:295:31:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+
+In viss-bookmark-next-buffer:
+linemark.el:380:28:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+
+In viss-bookmark-prev-buffer:
+linemark.el:386:28:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/linemark.elc
+
+In lmcompile-do-highlight:
+lmcompile.el:133:24:Warning: assignment to free variable
+    `compilation-last-buffer'
+lmcompile.el:140:19:Warning: `save-excursion' defeated by `set-buffer'
+lmcompile.el:140:19:Warning: reference to free variable
+    `compilation-last-buffer'
+lmcompile.el:134:12:Warning: reference to free variable
+    `compilation-error-list'
+lmcompile.el:171:74:Warning: `save-excursion' defeated by `set-buffer'
+lmcompile.el:188:12:Warning: `save-excursion' defeated by `set-buffer'
+lmcompile.el:209:18:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+lmcompile.el:219:1:Warning: the following functions are not known to be
+    defined: compilation-find-buffer, lmcompile-reinitialize-errors
+Wrote /Users/wgrose/repos/emacs_config/cedet/eieio/lmcompile.elc
+cd "/Users/wgrose/repos/emacs_config/cedet"/semantic && make  EMACS="emacs" EMACSFLAGS="-batch --no-site-file" SHELL="bash"
+for loadpath in . ../common/  ctags/ wisent/ bovine/ symref/  ../speedbar/ ../ede/ ../eieio/ ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> autoloads-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l autoloads-compile-script -f cedet-batch-update-autoloads semantic-loaddefs.el . bovine wisent ctags symref
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-loaddefs.el
+Generating autoloads for semantic-adebug.el...
+Generating autoloads for semantic-adebug.el...done
+Generating autoloads for semantic-analyze-complete.el...
+Generating autoloads for semantic-analyze-complete.el...done
+Generating autoloads for semantic-analyze-debug.el...
+Generating autoloads for semantic-analyze-debug.el...done
+Generating autoloads for semantic-analyze-fcn.el...
+Generating autoloads for semantic-analyze-fcn.el...done
+Generating autoloads for semantic-analyze-refs.el...
+Generating autoloads for semantic-analyze-refs.el...done
+Generating autoloads for semantic-analyze.el...
+Generating autoloads for semantic-analyze.el...done
+Generating autoloads for semantic-ast.el...
+Generating autoloads for semantic-ast.el...done
+Generating autoloads for semantic-chart.el...
+Generating autoloads for semantic-chart.el...done
+Generating autoloads for semantic-complete.el...
+Generating autoloads for semantic-complete.el...done
+Generating autoloads for semantic-ctxt.el...
+Generating autoloads for semantic-ctxt.el...done
+Generating autoloads for semantic-custom.el...
+Generating autoloads for semantic-custom.el...done
+Generating autoloads for semantic-debug.el...
+Generating autoloads for semantic-debug.el...done
+Generating autoloads for semantic-decorate-include.el...
+Generating autoloads for semantic-decorate-include.el...done
+Generating autoloads for semantic-decorate-mode.el...
+Generating autoloads for semantic-decorate-mode.el...done
+Generating autoloads for semantic-decorate.el...
+Generating autoloads for semantic-decorate.el...done
+Generating autoloads for semantic-dep.el...
+Generating autoloads for semantic-dep.el...done
+Generating autoloads for semantic-doc.el...
+Generating autoloads for semantic-doc.el...done
+Generating autoloads for semantic-ede-grammar.el...
+Generating autoloads for semantic-ede-grammar.el...done
+Generating autoloads for semantic-edit.el...
+Generating autoloads for semantic-edit.el...done
+Generating autoloads for semantic-elp.el...
+Generating autoloads for semantic-elp.el...done
+Generating autoloads for semantic-example.el...
+Generating autoloads for semantic-example.el...done
+Generating autoloads for semantic-find.el...
+Generating autoloads for semantic-find.el...done
+Generating autoloads for semantic-format.el...
+Generating autoloads for semantic-format.el...done
+Generating autoloads for semantic-fw.el...
+Generating autoloads for semantic-fw.el...done
+Generating autoloads for semantic-grammar-wy.el...
+Generating autoloads for semantic-grammar-wy.el...done
+Generating autoloads for semantic-grammar.el...
+Generating autoloads for semantic-grammar.el...done
+Generating autoloads for semantic-html.el...
+Generating autoloads for semantic-html.el...done
+Generating autoloads for semantic-ia-sb.el...
+Generating autoloads for semantic-ia-sb.el...done
+Generating autoloads for semantic-ia-utest.el...
+Generating autoloads for semantic-ia-utest.el...done
+Generating autoloads for semantic-ia.el...
+Generating autoloads for semantic-ia.el...done
+Generating autoloads for semantic-idle.el...
+Generating autoloads for semantic-idle.el...done
+Generating autoloads for semantic-imenu.el...
+Generating autoloads for semantic-imenu.el...done
+Generating autoloads for semantic-lex-spp.el...
+Generating autoloads for semantic-lex-spp.el...done
+Generating autoloads for semantic-lex.el...
+Generating autoloads for semantic-lex.el...done
+Generating autoloads for semantic-load.el...
+Generating autoloads for semantic-load.el...done
+Generating autoloads for semantic-mru-bookmark.el...
+Generating autoloads for semantic-mru-bookmark.el...done
+Generating autoloads for semantic-regtest.el...
+Generating autoloads for semantic-regtest.el...done
+Generating autoloads for semantic-sb.el...
+Generating autoloads for semantic-sb.el...done
+Generating autoloads for semantic-scope.el...
+Generating autoloads for semantic-scope.el...done
+Generating autoloads for semantic-sort.el...
+Generating autoloads for semantic-sort.el...done
+Generating autoloads for semantic-tag-file.el...
+Generating autoloads for semantic-tag-file.el...done
+Generating autoloads for semantic-tag-ls.el...
+Generating autoloads for semantic-tag-ls.el...done
+Generating autoloads for semantic-tag-write.el...
+Generating autoloads for semantic-tag-write.el...done
+Generating autoloads for semantic-tag.el...
+Generating autoloads for semantic-tag.el...done
+Generating autoloads for semantic-texi.el...
+Generating autoloads for semantic-texi.el...done
+Generating autoloads for semantic-utest-c.el...
+Generating autoloads for semantic-utest-c.el...done
+Generating autoloads for semantic-utest.el...
+Generating autoloads for semantic-utest.el...done
+Generating autoloads for semantic-util-modes.el...
+Generating autoloads for semantic-util-modes.el...done
+Generating autoloads for semantic-util.el...
+Generating autoloads for semantic-util.el...done
+Generating autoloads for semantic.el...
+Generating autoloads for semantic.el...done
+Generating autoloads for semanticdb-cscope.el...
+Generating autoloads for semanticdb-cscope.el...done
+Generating autoloads for semanticdb-debug.el...
+Generating autoloads for semanticdb-debug.el...done
+Generating autoloads for semanticdb-ebrowse.el...
+Generating autoloads for semanticdb-ebrowse.el...done
+Generating autoloads for semanticdb-el.el...
+Generating autoloads for semanticdb-el.el...done
+Generating autoloads for semanticdb-file.el...
+Generating autoloads for semanticdb-file.el...done
+Generating autoloads for semanticdb-find.el...
+Generating autoloads for semanticdb-find.el...done
+Generating autoloads for semanticdb-global.el...
+Generating autoloads for semanticdb-global.el...done
+Generating autoloads for semanticdb-javascript.el...
+Generating autoloads for semanticdb-javascript.el...done
+Generating autoloads for semanticdb-mk.el...
+Generating autoloads for semanticdb-mk.el...done
+Generating autoloads for semanticdb-mode.el...
+Generating autoloads for semanticdb-mode.el...done
+Generating autoloads for semanticdb-ref.el...
+Generating autoloads for semanticdb-ref.el...done
+Generating autoloads for semanticdb-search.el...
+Generating autoloads for semanticdb-search.el...done
+Generating autoloads for semanticdb-skel.el...
+Generating autoloads for semanticdb-skel.el...done
+Generating autoloads for semanticdb-typecache.el...
+Generating autoloads for semanticdb-typecache.el...done
+Generating autoloads for semanticdb.el...
+Generating autoloads for semanticdb.el...done
+Generating autoloads for senator.el...
+Generating autoloads for senator.el...done
+Generating autoloads for bovine/bovine-debug.el...
+Generating autoloads for bovine/bovine-debug.el...done
+Generating autoloads for bovine/bovine-grammar-macros.el...
+Generating autoloads for bovine/bovine-grammar-macros.el...done
+Generating autoloads for bovine/bovine-grammar.el...
+Generating autoloads for bovine/bovine-grammar.el...done
+Generating autoloads for bovine/semantic-bovine.el...
+Generating autoloads for bovine/semantic-bovine.el...done
+Generating autoloads for bovine/semantic-c-by.el...
+Generating autoloads for bovine/semantic-c-by.el...done
+Generating autoloads for bovine/semantic-c.el...
+Generating autoloads for bovine/semantic-c.el...done
+Generating autoloads for bovine/semantic-el.el...
+Generating autoloads for bovine/semantic-el.el...done
+Generating autoloads for bovine/semantic-erlang-by.el...
+Generating autoloads for bovine/semantic-erlang-by.el...done
+Generating autoloads for bovine/semantic-erlang.el...
+Generating autoloads for bovine/semantic-erlang.el...done
+Generating autoloads for bovine/semantic-gcc.el...
+Generating autoloads for bovine/semantic-gcc.el...done
+Generating autoloads for bovine/semantic-java.el...
+Generating autoloads for bovine/semantic-java.el...done
+Generating autoloads for bovine/semantic-make-by.el...
+Generating autoloads for bovine/semantic-make-by.el...done
+Generating autoloads for bovine/semantic-make.el...
+Generating autoloads for bovine/semantic-make.el...done
+Generating autoloads for bovine/semantic-scm-by.el...
+Generating autoloads for bovine/semantic-scm-by.el...done
+Generating autoloads for bovine/semantic-scm.el...
+Generating autoloads for bovine/semantic-scm.el...done
+Generating autoloads for bovine/semantic-skel.el...
+Generating autoloads for bovine/semantic-skel.el...done
+Generating autoloads for wisent/bison-wisent.el...
+Generating autoloads for wisent/bison-wisent.el...done
+Generating autoloads for wisent/semantic-wisent.el...
+Generating autoloads for wisent/semantic-wisent.el...done
+Generating autoloads for wisent/wisent-awk-wy.el...
+Generating autoloads for wisent/wisent-awk-wy.el...done
+Generating autoloads for wisent/wisent-calc-wy.el...
+Generating autoloads for wisent/wisent-calc-wy.el...done
+Generating autoloads for wisent/wisent-calc.el...
+Generating autoloads for wisent/wisent-calc.el...done
+Generating autoloads for wisent/wisent-cim-wy.el...
+Generating autoloads for wisent/wisent-cim-wy.el...done
+Generating autoloads for wisent/wisent-comp.el...
+Generating autoloads for wisent/wisent-comp.el...done
+Generating autoloads for wisent/wisent-debug.el...
+Generating autoloads for wisent/wisent-debug.el...done
+Generating autoloads for wisent/wisent-expr.el...
+Generating autoloads for wisent/wisent-expr.el...done
+Generating autoloads for wisent/wisent-grammar-macros.el...
+Generating autoloads for wisent/wisent-grammar-macros.el...done
+Generating autoloads for wisent/wisent-grammar.el...
+Generating autoloads for wisent/wisent-grammar.el...done
+Generating autoloads for wisent/wisent-java-tags-wy.el...
+Generating autoloads for wisent/wisent-java-tags-wy.el...done
+Generating autoloads for wisent/wisent-java-tags.el...
+Generating autoloads for wisent/wisent-java-tags.el...done
+Generating autoloads for wisent/wisent-java-wy.el...
+Generating autoloads for wisent/wisent-java-wy.el...done
+Generating autoloads for wisent/wisent-java.el...
+Generating autoloads for wisent/wisent-java.el...done
+Generating autoloads for wisent/wisent-javascript-jv-wy.el...
+Generating autoloads for wisent/wisent-javascript-jv-wy.el...done
+Generating autoloads for wisent/wisent-javascript.el...
+Generating autoloads for wisent/wisent-javascript.el...done
+Generating autoloads for wisent/wisent-python-wy.el...
+Generating autoloads for wisent/wisent-python-wy.el...done
+Generating autoloads for wisent/wisent-python.el...
+Generating autoloads for wisent/wisent-python.el...done
+Generating autoloads for wisent/wisent.el...
+Generating autoloads for wisent/wisent.el...done
+Generating autoloads for ctags/semantic-ectag-lang.el...
+Generating autoloads for ctags/semantic-ectag-lang.el...done
+Generating autoloads for ctags/semantic-ectag-lang2.el...
+Generating autoloads for ctags/semantic-ectag-lang2.el...done
+Generating autoloads for ctags/semantic-ectag-parse.el...
+Generating autoloads for ctags/semantic-ectag-parse.el...done
+Generating autoloads for ctags/semantic-ectag-util.el...
+Generating autoloads for ctags/semantic-ectag-util.el...done
+Generating autoloads for ctags/semanticdb-ectag.el...
+Generating autoloads for ctags/semanticdb-ectag.el...done
+Generating autoloads for symref/semantic-symref-cscope.el...
+Generating autoloads for symref/semantic-symref-cscope.el...done
+Generating autoloads for symref/semantic-symref-filter.el...
+Generating autoloads for symref/semantic-symref-filter.el...done
+Generating autoloads for symref/semantic-symref-global.el...
+Generating autoloads for symref/semantic-symref-global.el...done
+Generating autoloads for symref/semantic-symref-grep.el...
+Generating autoloads for symref/semantic-symref-grep.el...done
+Generating autoloads for symref/semantic-symref-idutils.el...
+Generating autoloads for symref/semantic-symref-idutils.el...done
+Generating autoloads for symref/semantic-symref-list.el...
+Generating autoloads for symref/semantic-symref-list.el...done
+Generating autoloads for symref/semantic-symref.el...
+Generating autoloads for symref/semantic-symref.el...done
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-loaddefs.el...
+Loading vc-git...
+Updating header...
+Updating header...done
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-loaddefs.el
+(No changes need to be saved)
+for loadpath in . ../common/  ctags/ wisent/ bovine/ symref/  ../speedbar/ ../ede/ ../eieio/ ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> init-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l init-compile-script -f batch-byte-compile semantic-load.el
+
+In semantic-load-enable-code-helpers:
+semantic-load.el:115:9:Warning: assignment to free variable
+    `semantic-idle-work-update-headers-flag'
+
+In semantic-load-enable-gaudy-code-helpers:
+semantic-load.el:161:15:Warning: assignment to free variable
+    `semantic-idle-work-parse-neighboring-files-flag'
+
+In end of data:
+semantic-load.el:245:1:Warning: the following functions are not known to be
+    defined: global-semantic-idle-summary-mode,
+    global-semantic-idle-completions-mode,
+    global-semantic-idle-local-symbol-highlight-mode,
+    semantic-toggle-decoration-style
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-load.elc
+for loadpath in . ../common/  ctags/ wisent/ bovine/ symref/  ../speedbar/ ../ede/ ../eieio/ ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> semantic-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> semantic-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l semantic-compile-script -f batch-byte-compile semantic.el semantic-fw.el semantic-lex.el semantic-lex-spp.el semantic-edit.el semantic-util.el semantic-tag.el semantic-tag-ls.el semantic-find.el semantic-sort.el semantic-tag-file.el semantic-tag-write.el semantic-doc.el semantic-idle.el semantic-custom.el
+Loading cedet-compat...
+
+In toplevel form:
+semantic.el:181:2:Warning: make-obsolete-variable called with 2 arguments, but
+    requires 3
+semantic.el:672:2:Warning: make-obsolete called with 2 arguments, but requires
+    3
+semantic.el:801:2:Warning: make-obsolete called with 2 arguments, but requires
+    3
+semantic.el:829:2:Warning: make-obsolete called with 2 arguments, but requires
+    3
+semantic.el:836:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic.el:836:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic.elc
+
+In semantic-test-data-cache:
+semantic-fw.el:252:10:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-fw.elc
+
+In semantic-flex:
+semantic-lex.el:1983:32:Warning: `semantic-flex-keyword-p' is an obsolete
+    function; use `semantic-lex-keyword-p' instead.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-lex.elc
+
+In semantic-lex-spp-write-utest:
+semantic-lex-spp.el:1211:38:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-lex-spp.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-edit.elc
+
+In end of data:
+semantic-util.el:364:1:Warning: the following functions are not known to be
+    defined: data-debug-insert-stuff-list, data-debug-insert-thing
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-util.elc
+
+In toplevel form:
+semantic-tag.el:1434:2:Warning: make-obsolete called with 2 arguments, but
+    requires 3
+
+In end of data:
+semantic-tag.el:1572:1:Warning: the following functions are not known to be
+    defined: semantic-ctxt-current-mode, semantic-analyze-split-name
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-tag.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-tag-ls.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-find.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-sort.elc
+
+In semantic-go-to-tag:
+semantic-tag-file.el:86:75:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+semantic-tag-file.el:88:57:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+
+In semantic-dependency-tag-file:
+semantic-tag-file.el:140:47:Warning: reference to free variable
+    `ede-minor-mode'
+
+In semantic-prototype-file:
+semantic-tag-file.el:189:40:Warning: reference to free variable
+    `ede-minor-mode'
+
+In end of data:
+semantic-tag-file.el:207:1:Warning: the function `ede-toplevel' is not known
+    to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-tag-file.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-tag-write.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-doc.elc
+
+In toplevel form:
+semantic-idle.el:45:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-idle.el:45:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-idle.el:45:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-idle.el:45:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-idle.el:45:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-idle.el:45:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In semantic-idle-breadcrumbs--popup-menu:
+semantic-idle.el:1074:26:Warning: reference to free variable
+    `semantic-idle-breadcrumbs-popup-menu'
+
+In end of data:
+semantic-idle.el:1338:1:Warning: the following functions are not known to be
+    defined: semantic-analyze-interesting-tag, semantic-analyze-unsplit-name
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-idle.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-custom.elc
+for loadpath in . ../common/  ctags/ wisent/ bovine/ symref/  ../speedbar/ ../ede/ ../eieio/ ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> utils-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> utils-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l utils-compile-script -f batch-byte-compile semantic-ast.el semantic-ctxt.el semantic-decorate.el semantic-dep.el semantic-format.el semantic-scope.el
+Loading cedet-compat...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-ast.elc
+
+In toplevel form:
+semantic-ctxt.el:35:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-ctxt.el:35:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-ctxt.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-decorate.elc
+
+In semantic-dependency-find-file-on-path:
+semantic-dep.el:212:70:Warning: attempt to inline
+    `semantic--dependency-find-file-on-path' before it was defined
+semantic-dep.el:212:70:Warning: attempt to inline
+    `semantic--dependency-find-file-on-path' before it was defined
+semantic-dep.el:212:70:Warning: attempt to inline
+    `semantic--dependency-find-file-on-path' before it was defined
+semantic-dep.el:220:44:Warning: reference to free variable `ede-minor-mode'
+semantic-dep.el:221:28:Warning: reference to free variable `ede-object'
+
+In end of data:
+semantic-dep.el:241:1:Warning: the following functions are not known to be
+    defined: ede-system-include-path, semantic--dependency-find-file-on-path
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-dep.elc
+
+In toplevel form:
+semantic-format.el:145:2:Warning: make-obsolete called with 2 arguments, but
+    requires 3
+
+In semantic-test-all-format-tag-functions:
+semantic-format.el:760:21:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-format.elc
+
+In end of data:
+semantic-scope.el:803:1:Warning: the following functions are not known to be
+    defined: semantic-analyze-find-tag, data-debug-show,
+    semantic-analyze-princ-sequence
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-scope.elc
+for loadpath in . ../common/  ctags/ wisent/ bovine/ symref/  ../speedbar/ ../ede/ ../eieio/ ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> Database-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> Database-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l Database-compile-script -f batch-byte-compile semanticdb.el semanticdb-mode.el semanticdb-debug.el semanticdb-ebrowse.el semanticdb-el.el semanticdb-file.el semanticdb-find.el semanticdb-mk.el semanticdb-ref.el semanticdb-search.el semanticdb-typecache.el semanticdb-javascript.el semanticdb-global.el semanticdb-cscope.el
+Loading cedet-compat...
+
+In toplevel form:
+semanticdb.el:38:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semanticdb.el:38:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-mode.elc
+
+In end of data:
+semanticdb-debug.el:117:1:Warning: the function `data-debug-insert-stuff-list'
+    is not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-debug.elc
+
+In end of data:
+semanticdb-ebrowse.el:709:1:Warning: the function `data-debug-insert-thing' is
+    not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-ebrowse.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-el.elc
+
+In end of data:
+semanticdb-file.el:451:1:Warning: the function `data-debug-insert-thing' is
+    not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-file.elc
+
+In semanticdb-find-adebug-scanned-includes:
+semanticdb-find.el:830:10:Warning: reference to free variable
+    `data-debug-thing-alist'
+
+In end of data:
+semanticdb-find.el:1400:1:Warning: the following functions are not known to be
+    defined: ede-current-project, data-debug-insert-stuff-list
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-find.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-mk.elc
+
+In end of data:
+semanticdb-ref.el:164:1:Warning: the function `data-debug-insert-object-slots'
+    is not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-ref.elc
+
+In toplevel form:
+semanticdb-search.el:130:2:Warning: make-obsolete called with 2 arguments, but
+    requires 3
+semanticdb-search.el:148:2:Warning: make-obsolete called with 2 arguments, but
+    requires 3
+semanticdb-search.el:166:2:Warning: make-obsolete called with 2 arguments, but
+    requires 3
+semanticdb-search.el:185:2:Warning: make-obsolete called with 2 arguments, but
+    requires 3
+semanticdb-search.el:204:2:Warning: make-obsolete called with 2 arguments, but
+    requires 3
+semanticdb-search.el:222:2:Warning: make-obsolete called with 2 arguments, but
+    requires 3
+semanticdb-search.el:240:2:Warning: make-obsolete called with 2 arguments, but
+    requires 3
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-search.elc
+
+In end of data:
+semanticdb-typecache.el:615:1:Warning: the following functions are not known
+    to be defined: semantic-analyze-split-name, data-debug-insert-thing
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-typecache.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-javascript.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-global.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semanticdb-cscope.elc
+for loadpath in . ../common/  ctags/ wisent/ bovine/ symref/  ../speedbar/ ../ede/ ../eieio/ ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> tools-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> tools-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l tools-compile-script -f batch-byte-compile semantic-adebug.el semantic-chart.el semantic-complete.el semantic-debug.el semantic-decorate-mode.el semantic-decorate-include.el semantic-elp.el semantic-grammar.el semantic-ia-sb.el semantic-ia.el semantic-imenu.el semantic-mru-bookmark.el semantic-sb.el semantic-util-modes.el senator.el
+Loading cedet-compat...
+
+In toplevel form:
+semantic-adebug.el:38:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-adebug.el:38:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-adebug.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-chart.elc
+
+In semantic-displayor-tooltip::semantic-displayor-show-request:
+semantic-complete.el:1592:42:Warning: reference to free variable
+    `tooltip-mode'
+
+In end of data:
+semantic-complete.el:2207:1:Warning: the function
+    `semantic-displayor-focus-abstract-child-p' might not be defined at
+    runtime.
+semantic-complete.el:2207:1:Warning: the function `eieio-build-class-alist' is
+    not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-complete.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-debug.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-decorate-mode.elc
+
+In semantic-decoration-all-include-summary:
+semantic-decorate-include.el:628:30:Warning: reference to free variable
+    `ede-object'
+semantic-decorate-include.el:632:32:Warning: reference to free variable
+    `ede-object-project'
+
+In end of data:
+semantic-decorate-include.el:764:1:Warning: the following functions are not
+    known to be defined: mouse-set-point, ede-get-locator-object,
+    ede-system-include-path
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-decorate-include.elc
+
+In end of data:
+semantic-elp.el:775:1:Warning: the function
+    `semantic-idle-scheduler-work-parse-neighboring-files' is not known to be
+    defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-elp.elc
+
+In toplevel form:
+semantic-grammar.el:45:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-grammar.el:45:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-grammar.el:45:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-grammar.el:45:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-grammar.el:45:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-grammar.el:45:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In semantic-grammar-batch-build-packages:
+semantic-grammar.el:987:53:Warning: `find-file-hooks' is an obsolete variable
+    (as of Emacs 22.1); use `find-file-hook' instead.
+semantic-grammar.el:987:53:Warning: `find-file-hooks' is an obsolete variable
+    (as of Emacs 22.1); use `find-file-hook' instead.
+
+In semantic-grammar-eldoc-get-macro-docstring:
+semantic-grammar.el:1658:19:Warning: eldoc-docstring-format-sym-doc called
+    with 2 arguments, but requires 3
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-grammar.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-ia-sb.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-ia.elc
+
+In end of data:
+semantic-imenu.el:555:1:Warning: the function
+    `semanticdb-semantic-init-hook-fcn' is not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-imenu.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-mru-bookmark.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-sb.elc
+
+In end of data:
+semantic-util-modes.el:1263:1:Warning: the following functions are not known
+    to be defined: popup-menu, mouse-set-point
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-util-modes.elc
+
+In senator-minor-mode:
+senator.el:2466:8:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In senator-copy-tag:
+senator.el:2658:14:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In senator-kill-tag:
+senator.el:2673:12:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In senator-yank-tag:
+senator.el:2688:18:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+senator.el:2879:11:Warning: assignment to free variable
+    `isearch-highlight-last-string'
+senator.el:2892:11:Warning: assignment to free variable `ishl-last-string'
+
+In end of data:
+senator.el:3023:1:Warning: the function `global-senator-minor-mode' might not
+    be defined at runtime.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/senator.elc
+for loadpath in . ../common/  ctags/ wisent/ bovine/ symref/  ../speedbar/ ../ede/ ../eieio/ ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> Analyzer-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> Analyzer-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l Analyzer-compile-script -f batch-byte-compile semantic-analyze.el semantic-analyze-complete.el semantic-analyze-fcn.el semantic-analyze-debug.el semantic-analyze-refs.el
+Loading cedet-compat...
+
+In end of data:
+semantic-analyze.el:799:1:Warning: the following functions are not known to be
+    defined: data-debug-insert-object-slots, pulse-momentary-highlight-region
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-analyze.elc
+
+In semantic-analyze-possible-completions:
+semantic-analyze-complete.el:116:14:Warning: cedet-called-interactively-p
+    called with 0 arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-analyze-complete.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-analyze-fcn.elc
+
+In semantic-analyzer-debug-insert-include-summary:
+semantic-analyze-debug.el:391:12:Warning: reference to free variable
+    `ede-object'
+semantic-analyze-debug.el:394:12:Warning: reference to free variable
+    `ede-object-project'
+
+In end of data:
+semantic-analyze-debug.el:610:1:Warning: the function `ede-get-locator-object'
+    is not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-analyze-debug.elc
+
+In end of data:
+semantic-analyze-refs.el:340:1:Warning: the function
+    `data-debug-insert-object-slots' is not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-analyze-refs.elc
+for loadpath in . ../common/  ctags/ wisent/ bovine/ symref/  ../speedbar/ ../ede/ ../eieio/ ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> Languages-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> Languages-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l Languages-compile-script -f batch-byte-compile semantic-texi.el semantic-html.el
+Loading cedet-compat...
+
+In toplevel form:
+semantic-texi.el:42:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-texi.el:42:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-texi.el:42:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-texi.el:42:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-texi.el:42:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-texi.el:42:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In semantic-texi-associated-files:
+semantic-texi.el:492:17:Warning: reference to free variable `ede-minor-mode'
+
+In end of data:
+semantic-texi.el:693:1:Warning: the following functions are not known to be
+    defined: lookup-words, ede-current-project, srecode-texi-insert-tag-as-doc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-texi.elc
+
+In semantic-html-recursive-combobulate-list:
+semantic-html.el:184:35:Warning: `assoc-ignore-case' is an obsolete function
+    (as of Emacs 22.1); use `assoc-string' instead.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-html.elc
+"emacs" -batch --no-site-file -l grammar-make-script -f semantic-grammar-batch-build-packages semantic-grammar.wy
+Compiling Grammars from: /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-grammar.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-grammar-wy.el...
+Loading vc-git...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-grammar-wy.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-grammar-wy.elc
+for loadpath in . ../common/  ctags/ wisent/ bovine/ symref/  ../speedbar/ ../ede/ ../eieio/ ./; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> tests-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l tests-compile-script -f batch-byte-compile semantic-regtest.el semantic-ia-utest.el semantic-utest.el semantic-utest-c.el
+
+In semantic-regtest-run-test--internal:
+semantic-regtest.el:188:67:Warning: `save-excursion' defeated by `set-buffer'
+
+In semantic-regtest-create-output--internal:
+semantic-regtest.el:255:8:Warning: `save-excursion' defeated by `set-buffer'
+semantic-regtest.el:309:17:Warning: `save-excursion' defeated by `set-buffer'
+semantic-regtest.el:315:19:Warning: `save-excursion' defeated by `set-buffer'
+
+In semantic-regtest-convert-difference:
+semantic-regtest.el:357:22:Warning: `save-excursion' defeated by `set-buffer'
+
+In semantic-regtest-ediff:
+semantic-regtest.el:458:27:Warning: reference to free variable
+    `ediff-diff-options'
+semantic-regtest.el:463:14:Warning: reference to free variable
+    `ediff-diff-buffer'
+semantic-regtest.el:466:30:Warning: assignment to free variable
+    `ediff-diff-buffer'
+semantic-regtest.el:467:31:Warning: reference to free variable
+    `ediff-diff-ok-lines-regexp'
+
+In semantic-regtest-goto-file:
+semantic-regtest.el:719:26:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+
+In end of data:
+semantic-regtest.el:916:1:Warning: the function `semantic-regtest-convert-tag'
+    might not be defined at runtime.
+semantic-regtest.el:916:1:Warning: the following functions are not known to be
+    defined: ediff-unique-buffer-name, ediff-make-diff2-buffer,
+    ediff-prepare-error-list, ediff-extract-diffs, mouse-set-point
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-regtest.elc
+Setting up CEDET packages...
+Setting up CEDET packages...done
+
+In semantic-ia-utest:
+semantic-ia-utest.el:106:29:Warning: `save-excursion' defeated by `set-buffer'
+
+In semantic-ia-utest-ffns:
+semantic-ia-utest.el:146:23:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-ia-utest.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-utest.elc
+
+In semantic-utest-c-compare:
+semantic-utest-c.el:55:13:Warning: `save-excursion' defeated by `set-buffer'
+semantic-utest-c.el:67:20:Warning: `save-excursion' defeated by `set-buffer'
+
+In semantic-utest-c-conditionals:
+semantic-utest-c.el:91:15:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-utest-c.elc
+make -C wisent
+for loadpath in . ../../speedbar/ ../../common/ ../bovine/ ../ ../../ede/ ../../eieio/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> tools-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l tools-compile-script -f batch-byte-compile bison-wisent.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/bison-wisent.elc
+for loadpath in . ../../speedbar/ ../../common/ ../bovine/ ../ ../../ede/ ../../eieio/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> wisent-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l wisent-compile-script -f batch-byte-compile wisent.el semantic-wisent.el wisent-comp.el wisent-expr.el wisent-grammar.el wisent-debug.el wisent-grammar-macros.el
+
+In end of data:
+wisent.el:484:1:Warning: the function `cedet-called-interactively-p' is not
+    known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/semantic-wisent.elc
+
+In end of data:
+wisent-comp.el:3559:1:Warning: the function `cedet-called-interactively-p' is
+    not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-comp.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-expr.elc
+
+In wisent-grammar-terminals:
+wisent-grammar.el:54:6:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-grammar.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-debug.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-grammar-macros.elc
+"emacs" -batch --no-site-file -l grammar-make-script -f semantic-grammar-batch-build-packages wisent-java-tags.wy wisent-awk.wy wisent-calc.wy wisent-cim.wy wisent-java.wy wisent-python.wy wisent-javascript-jv.wy
+Compiling Grammars from: /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-grammar.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-java-tags-wy.el...
+Loading vc-git...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-java-tags-wy.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-java-tags-wy.elc
+*Warning* default value of <<no-type>> tokens changed to LEX_LENGTH, was LEX_BUILTIN
+*Warning* default value of <<no-type>> tokens changed to LEX_BUILTIN, was DECREMENT
+*Warning* default value of <<no-type>> tokens changed to DECREMENT, was INCREMENT
+*Warning* default value of <<no-type>> tokens changed to INCREMENT, was LEX_OR
+*Warning* default value of <<no-type>> tokens changed to LEX_OR, was LEX_AND
+*Warning* default value of <<no-type>> tokens changed to LEX_AND, was LEX_IN
+*Warning* default value of <<no-type>> tokens changed to LEX_IN, was LEX_NEXTFILE
+*Warning* default value of <<no-type>> tokens changed to LEX_NEXTFILE, was LEX_GETLINE
+*Warning* default value of <<no-type>> tokens changed to LEX_GETLINE, was LEX_FUNCTION
+*Warning* default value of <<no-type>> tokens changed to LEX_FUNCTION, was LEX_EXIT
+*Warning* default value of <<no-type>> tokens changed to LEX_EXIT, was LEX_NEXT
+*Warning* default value of <<no-type>> tokens changed to LEX_NEXT, was LEX_PRINTF
+*Warning* default value of <<no-type>> tokens changed to LEX_PRINTF, was LEX_PRINT
+*Warning* default value of <<no-type>> tokens changed to LEX_PRINT, was LEX_CONTINUE
+*Warning* default value of <<no-type>> tokens changed to LEX_CONTINUE, was LEX_BREAK
+*Warning* default value of <<no-type>> tokens changed to LEX_BREAK, was LEX_FOR
+*Warning* default value of <<no-type>> tokens changed to LEX_FOR, was LEX_DO
+*Warning* default value of <<no-type>> tokens changed to LEX_DO, was LEX_WHILE
+*Warning* default value of <<no-type>> tokens changed to LEX_WHILE, was LEX_DELETE
+*Warning* default value of <<no-type>> tokens changed to LEX_DELETE, was LEX_RETURN
+*Warning* default value of <<no-type>> tokens changed to LEX_RETURN, was LEX_ELSE
+*Warning* default value of <<no-type>> tokens changed to LEX_ELSE, was LEX_IF
+*Warning* default value of <<no-type>> tokens changed to LEX_IF, was LEX_END
+*Warning* default value of <<no-type>> tokens changed to LEX_END, was LEX_BEGIN
+*Warning* default value of <<no-type>> tokens changed to LEX_BEGIN, was CONCAT_OP
+*Warning* default value of <<no-type>> tokens changed to CONCAT_OP, was NEWLINE
+*Warning* default value of <<no-type>> tokens changed to NEWLINE, was MATCHOP
+*Warning* default value of <<no-type>> tokens changed to MATCHOP, was ASSIGNOP
+*Warning* default value of <<no-type>> tokens changed to ASSIGNOP, was APPEND_OP
+*Warning* default value of <<no-type>> tokens changed to APPEND_OP, was RELOP
+*Warning* default value of <<no-type>> tokens changed to RELOP, was YSTRING
+*Warning* default value of <<no-type>> tokens changed to YSTRING, was YNUMBER
+*Warning* default value of <<no-type>> tokens changed to YNUMBER, was ERROR
+*Warning* default value of <<no-type>> tokens changed to ERROR, was REGEXP
+*Warning* default value of <<no-type>> tokens changed to REGEXP, was NAME
+*Warning* default value of <<no-type>> tokens changed to NAME, was FUNC_CALL
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-awk-wy.el...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-awk-wy.el
+Grammar in wisent-awk-wy.el contains 65 shift/reduce conflicts
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-awk-wy.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-calc-wy.el...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-calc-wy.el
+
+In end of data:
+wisent-calc-wy.el:145:1:Warning: the following functions are not known to be
+    defined: wisent-calc-=, wisent-calc-not, wisent-calc-factorial
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-calc-wy.elc
+*Warning* default value of <ival> tokens changed to HCHARACTERKONST, was HINTEGERKONST
+*Warning* default value of <ival> tokens changed to HINTEGERKONST, was HBOOLEANKONST
+*Warning* default value of <<no-type>> tokens changed to HDOTDOTDOT, was HEXP
+*Warning* default value of <<no-type>> tokens changed to HEXP, was HINTDIV
+*Warning* default value of <<no-type>> tokens changed to HINTDIV, was HDIV
+*Warning* default value of <<no-type>> tokens changed to HDIV, was HMUL
+*Warning* default value of <<no-type>> tokens changed to HMUL, was HSUB
+*Warning* default value of <<no-type>> tokens changed to HSUB, was HADD
+*Warning* default value of <<no-type>> tokens changed to HADD, was HNER
+*Warning* default value of <<no-type>> tokens changed to HNER, was HEQR
+*Warning* default value of <<no-type>> tokens changed to HEQR, was HENDPAR
+*Warning* default value of <<no-type>> tokens changed to HENDPAR, was HBEGPAR
+*Warning* default value of <<no-type>> tokens changed to HBEGPAR, was HSTATEMENTSEPARATOR
+*Warning* default value of <<no-type>> tokens changed to HSTATEMENTSEPARATOR, was HLABELSEPARATOR
+*Warning* default value of <<no-type>> tokens changed to HLABELSEPARATOR, was HPAREXPSEPARATOR
+*Warning* default value of <<no-type>> tokens changed to HPAREXPSEPARATOR, was HASSIGNREF
+*Warning* default value of <<no-type>> tokens changed to HASSIGNREF, was HASSIGNVALUE
+*Warning* default value of <<no-type>> tokens changed to HASSIGNVALUE, was HWHILE
+*Warning* default value of <<no-type>> tokens changed to HWHILE, was HWHEN
+*Warning* default value of <<no-type>> tokens changed to HWHEN, was HVIRTUAL
+*Warning* default value of <<no-type>> tokens changed to HVIRTUAL, was HVAR
+*Warning* default value of <<no-type>> tokens changed to HVAR, was HVALUE
+*Warning* default value of <<no-type>> tokens changed to HVALUE, was HUNTIL
+*Warning* default value of <<no-type>> tokens changed to HUNTIL, was HTO
+*Warning* default value of <<no-type>> tokens changed to HTO, was HTHIS
+*Warning* default value of <<no-type>> tokens changed to HTHIS, was HTHEN
+*Warning* default value of <<no-type>> tokens changed to HTHEN, was HTEXT
+*Warning* default value of <<no-type>> tokens changed to HTEXT, was HSWITCH
+*Warning* default value of <<no-type>> tokens changed to HSWITCH, was HSTEP
+*Warning* default value of <<no-type>> tokens changed to HSTEP, was HSHORT
+*Warning* default value of <<no-type>> tokens changed to HSHORT, was HREF
+*Warning* default value of <<no-type>> tokens changed to HREF, was HREAL
+*Warning* default value of <<no-type>> tokens changed to HREAL, was HREACTIVATE
+*Warning* default value of <<no-type>> tokens changed to HREACTIVATE, was HQUA
+*Warning* default value of <<no-type>> tokens changed to HQUA, was HPROTECTED
+*Warning* default value of <<no-type>> tokens changed to HPROTECTED, was HPROCEDURE
+*Warning* default value of <<no-type>> tokens changed to HPROCEDURE, was HPRIOR
+*Warning* default value of <<no-type>> tokens changed to HPRIOR, was HOTHERWISE
+*Warning* default value of <<no-type>> tokens changed to HOTHERWISE, was HNOTEXT
+*Warning* default value of <<no-type>> tokens changed to HNOTEXT, was HNONE
+*Warning* default value of <<no-type>> tokens changed to HNONE, was HNEW
+*Warning* default value of <<no-type>> tokens changed to HNEW, was HNE
+*Warning* default value of <<no-type>> tokens changed to HNE, was HNAME
+*Warning* default value of <<no-type>> tokens changed to HNAME, was HLT
+*Warning* default value of <<no-type>> tokens changed to HLT, was HLONG
+*Warning* default value of <<no-type>> tokens changed to HLONG, was HLE
+*Warning* default value of <<no-type>> tokens changed to HLE, was HLABEL
+*Warning* default value of <<no-type>> tokens changed to HLABEL, was HIS
+*Warning* default value of <<no-type>> tokens changed to HIS, was HINTEGER
+*Warning* default value of <<no-type>> tokens changed to HINTEGER, was HINSPECT
+*Warning* default value of <<no-type>> tokens changed to HINSPECT, was HINNER
+*Warning* default value of <<no-type>> tokens changed to HINNER, was HIN
+*Warning* default value of <<no-type>> tokens changed to HIN, was HIF
+*Warning* default value of <<no-type>> tokens changed to HIF, was HHIDDEN
+*Warning* default value of <<no-type>> tokens changed to HHIDDEN, was HGT
+*Warning* default value of <<no-type>> tokens changed to HGT, was HGOTO
+*Warning* default value of <<no-type>> tokens changed to HGOTO, was HGO
+*Warning* default value of <<no-type>> tokens changed to HGO, was HGE
+*Warning* default value of <<no-type>> tokens changed to HGE, was HFOR
+*Warning* default value of <<no-type>> tokens changed to HFOR, was HEXTERNAL
+*Warning* default value of <<no-type>> tokens changed to HEXTERNAL, was HEQ
+*Warning* default value of <<no-type>> tokens changed to HEQ, was HEND
+*Warning* default value of <<no-type>> tokens changed to HEND, was HELSE
+*Warning* default value of <<no-type>> tokens changed to HELSE, was HDO
+*Warning* default value of <<no-type>> tokens changed to HDO, was HDELAY
+*Warning* default value of <<no-type>> tokens changed to HDELAY, was HCONC
+*Warning* default value of <<no-type>> tokens changed to HCONC, was HCLASS
+*Warning* default value of <<no-type>> tokens changed to HCLASS, was HCHARACTER
+*Warning* default value of <<no-type>> tokens changed to HCHARACTER, was HBOOLEAN
+*Warning* default value of <<no-type>> tokens changed to HBOOLEAN, was HBEGIN
+*Warning* default value of <<no-type>> tokens changed to HBEGIN, was HBEFORE
+*Warning* default value of <<no-type>> tokens changed to HBEFORE, was HAT
+*Warning* default value of <<no-type>> tokens changed to HAT, was HARRAY
+*Warning* default value of <<no-type>> tokens changed to HARRAY, was HAFTER
+*Warning* default value of <<no-type>> tokens changed to HAFTER, was HACTIVATE
+*Warning* default value of <token> tokens changed to HFACTOROPERATOR, was UNEAR
+*Warning* default value of <token> tokens changed to UNEAR, was HTERMOPERATOR
+*Warning* default value of <token> tokens changed to HTERMOPERATOR, was HOBJRELOPERATOR
+*Warning* default value of <token> tokens changed to HOBJRELOPERATOR, was HREFRELOPERATOR
+*Warning* default value of <token> tokens changed to HREFRELOPERATOR, was HVALRELOPERATOR
+*Warning* default value of <token> tokens changed to HVALRELOPERATOR, was HASSIGN
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-cim-wy.el...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-cim-wy.el
+Grammar in wisent-cim-wy.el contains 78 shift/reduce conflicts and 10 reduce/reduce conflicts
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-cim-wy.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-java-wy.el...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-java-wy.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-java-wy.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-python-wy.el...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-python-wy.el
+Grammar in wisent-python-wy.el contains 2 useless nonterminals and 3 useless rules
+Grammar in wisent-python-wy.el contains 3 shift/reduce conflicts
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-python-wy.elc
+*Warning* default value of <<no-type>> tokens changed to NULL_TOKEN, was QUERY
+*Warning* default value of <<no-type>> tokens changed to QUERY, was TRUE
+*Warning* default value of <<no-type>> tokens changed to TRUE, was FALSE
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-javascript-jv-wy.el...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-javascript-jv-wy.el
+Grammar in wisent-javascript-jv-wy.el contains 2 useless nonterminals and 4 useless rules
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-javascript-jv-wy.elc
+for loadpath in . ../../speedbar/ ../../common/ ../bovine/ ../ ../../ede/ ../../eieio/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> languages-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l languages-compile-script -f batch-byte-compile wisent-calc.el wisent-java.el wisent-java-tags.el wisent-python.el wisent-javascript.el
+
+In wisent-calc:
+wisent-calc.el:84:12:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-calc.elc
+
+In toplevel form:
+wisent-java.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+wisent-java.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+wisent-java.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+wisent-java.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+wisent-java.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+wisent-java.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-java.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-java-tags.elc
+
+In toplevel form:
+wisent-python.el:207:9:Warning: value returned from (= last-pos (point)) is
+    unused
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-python.elc
+*Warning* default value of <<no-type>> tokens changed to NULL_TOKEN, was QUERY
+*Warning* default value of <<no-type>> tokens changed to QUERY, was TRUE
+*Warning* default value of <<no-type>> tokens changed to TRUE, was FALSE
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/wisent/wisent-javascript.elc
+make -C tests
+make[2]: Nothing to be done for `all'.
+make -C symref
+for loadpath in . ../../srecode/ ../../speedbar/ ../../ede/ ../../common/ ../bovine/ ../ ../../eieio/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> symref-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> symref-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l symref-compile-script -f batch-byte-compile semantic-symref.el semantic-symref-global.el semantic-symref-grep.el semantic-symref-list.el semantic-symref-idutils.el semantic-symref-cscope.el semantic-symref-filter.el
+Loading cedet-compat...
+
+In end of data:
+semantic-symref.el:501:1:Warning: the following functions are not known to be
+    defined: semantic-tag-name, semantic-tag-copy, semantic--tag-put-property,
+    semantic-equivalent-tag-p, semantic--tag-get-property
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/symref/semantic-symref.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/symref/semantic-symref-global.elc
+
+In toplevel form:
+semantic-symref-grep.el:96:30:Warning: reference to free variable
+    `grep-expand-keywords'
+
+In semantic-symref-grep-use-template:
+semantic-symref-grep.el:114:37:Warning: reference to free variable
+    `grep-find-template'
+
+In end of data:
+semantic-symref-grep.el:191:1:Warning: the function `grep-expand-template' is
+    not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/symref/semantic-symref-grep.elc
+
+In toplevel form:
+semantic-symref-list.el:36:1:Warning: cedet-called-interactively-p called with
+    0 arguments, but requires 1
+semantic-symref-list.el:36:1:Warning: cedet-called-interactively-p called with
+    0 arguments, but requires 1
+semantic-symref-list.el:36:1:Warning: cedet-called-interactively-p called with
+    0 arguments, but requires 1
+semantic-symref-list.el:36:1:Warning: cedet-called-interactively-p called with
+    0 arguments, but requires 1
+semantic-symref-list.el:36:1:Warning: cedet-called-interactively-p called with
+    0 arguments, but requires 1
+semantic-symref-list.el:36:1:Warning: cedet-called-interactively-p called with
+    0 arguments, but requires 1
+semantic-symref-list.el:37:1:Warning: cedet-called-interactively-p called with
+    0 arguments, but requires 1
+semantic-symref-list.el:37:1:Warning: cedet-called-interactively-p called with
+    0 arguments, but requires 1
+
+In semantic-symref-rb-goto-file:
+semantic-symref-list.el:352:15:Warning: `last-command-char' is an obsolete
+    variable (as of Emacs at least 19.34); use `last-command-event' instead.
+
+In semantic-symref-rb-goto-tag:
+semantic-symref-list.el:367:15:Warning: `last-command-char' is an obsolete
+    variable (as of Emacs at least 19.34); use `last-command-event' instead.
+
+In semantic-symref-rb-goto-match:
+semantic-symref-list.el:380:6:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+semantic-symref-list.el:383:15:Warning: `last-command-char' is an obsolete
+    variable (as of Emacs at least 19.34); use `last-command-event' instead.
+
+In semantic-symref-list-create-macro-on-open-hit:
+semantic-symref-list.el:455:37:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+
+In semantic-symref-list-map-open-hits:
+semantic-symref-list.el:527:26:Warning: `save-excursion' defeated by
+    `set-buffer'
+semantic-symref-list.el:526:28:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/symref/semantic-symref-list.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/symref/semantic-symref-idutils.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/symref/semantic-symref-cscope.elc
+
+In semantic-symref-test-count-hits-in-tag:
+semantic-symref-filter.el:99:14:Warning: cedet-called-interactively-p called
+    with 0 arguments, but requires 1
+
+In end of data:
+semantic-symref-filter.el:158:1:Warning: the function
+    `semantic-idle-summary-useful-context-p' is not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/symref/semantic-symref-filter.elc
+make -C doc
+make[2]: Nothing to be done for `all'.
+make -C ctags
+for loadpath in . ../bovine/ ../../eieio/ ../ ../../common/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> ctags-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> ctags-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l ctags-compile-script -f batch-byte-compile semantic-ectag-util.el semantic-ectag-lang.el semantic-ectag-parse.el semanticdb-ectag.el semantic-ectag-lang2.el
+Loading cedet-compat...
+
+In semantic-ectag-run:
+semantic-ectag-util.el:69:19:Warning: `save-excursion' defeated by
+    `set-buffer'
+
+In semantic-ectag-lang-and-kinds:
+semantic-ectag-util.el:96:15:Warning: `save-excursion' defeated by
+    `set-buffer'
+
+In semantic-ectag-version:
+semantic-ectag-util.el:151:57:Warning: `save-excursion' defeated by
+    `set-buffer'
+semantic-ectag-util.el:154:16:Warning: `save-excursion' defeated by
+    `set-buffer'
+semantic-ectag-util.el:173:15:Warning: `save-excursion' defeated by
+    `set-buffer'
+semantic-ectag-util.el:166:16:Warning: cedet-called-interactively-p called
+    with 0 arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/ctags/semantic-ectag-util.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/ctags/semantic-ectag-lang.elc
+
+In semantic-ectag-parse-file-with-mode:
+semantic-ectag-parse.el:101:19:Warning: `save-excursion' defeated by
+    `set-buffer'
+
+In semantic-ectag-expand-tag:
+semantic-ectag-parse.el:447:31:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+semantic-ectag-parse.el:435:58:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+
+In end of data:
+semantic-ectag-parse.el:453:1:Warning: the following functions are not known
+    to be defined: semantic-analyze-unsplit-name, semantic-analyze-split-name
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/ctags/semantic-ectag-parse.elc
+
+In end of data:
+semanticdb-ectag.el:94:1:Warning: the following functions are not known to be
+    defined: semanticdb-create-table-for-file, semanticdb-synchronize
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/ctags/semanticdb-ectag.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/ctags/semantic-ectag-lang2.elc
+make -C bovine
+"emacs" -batch --no-site-file -l grammar-make-script -f semantic-grammar-batch-build-packages c.by make.by scheme.by erlang.by
+Compiling Grammars from: /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-grammar.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-c-by.el...
+Loading vc-git...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-c-by.el
+
+In end of data:
+semantic-c-by.el:2208:1:Warning: the following functions are not known to be
+    defined: semantic-c-reconstitute-template, semantic-c-reconstitute-token,
+    semantic-expand-c-tag
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-c-by.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-make-by.el...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-make-by.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-make-by.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-scm-by.el...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-scm-by.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-scm-by.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-erlang-by.el...
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-erlang-by.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-erlang-by.elc
+for loadpath in . ../../ede/ ../../common/ ../ ../../eieio/ ../wisent/ ../../speedbar/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> bovinator-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l bovinator-compile-script -f batch-byte-compile semantic-bovine.el bovine-grammar.el bovine-debug.el bovine-grammar-macros.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-bovine.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/bovine-grammar.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/bovine-debug.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/bovine-grammar-macros.elc
+for loadpath in . ../../ede/ ../../common/ ../ ../../eieio/ ../wisent/ ../../speedbar/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> languages-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> languages-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l languages-compile-script -f batch-byte-compile semantic-c.el semantic-el.el semantic-make.el semantic-scm.el semantic-java.el semantic-erlang.el semantic-gcc.el
+Loading cedet-compat...
+
+In toplevel form:
+semantic-c.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-c.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-c.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-c.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-c.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-c.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+semantic-c.el:41:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In semantic-c-describe-environment:
+semantic-c.el:1963:30:Warning: reference to free variable `ede-object'
+
+In end of data:
+semantic-c.el:2046:1:Warning: the function
+    `semantic-analyze-split-name-c-mode' might not be defined at runtime.
+semantic-c.el:2046:1:Warning: the following functions are not known to be
+    defined: semanticdb-needs-refresh-p, semanticdb-refresh-table,
+    semantic-analyze-tag-prototype-p, semantic-analyze-scoped-type-parts,
+    semantic-analyze-split-name, semantic-analyze-unsplit-name,
+    semanticdb-find-result-length, semanticdb-typecache-faux-namespace,
+    semantic-idle-summary-current-symbol-info-default, ede-system-include-path
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-c.elc
+
+In end of data:
+semantic-el.el:971:1:Warning: the function `forward-symbol' is not known to be
+    defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-el.elc
+
+In semantic-analyze-possible-completions-makefile-mode:
+semantic-make.el:179:18:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+semantic-make.el:240:1:Warning: the function
+    `semantic-analyze-possible-completions-default' is not known to be
+    defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-make.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-scm.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-java.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-erlang.elc
+
+In end of data:
+semantic-gcc.el:322:1:Warning: the function
+    `semantic-c-reset-preprocessor-symbol-map' is not known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/semantic/bovine/semantic-gcc.elc
+cd "/Users/wgrose/repos/emacs_config/cedet"/srecode && make  EMACS="emacs" EMACSFLAGS="-batch --no-site-file" SHELL="bash"
+for loadpath in . ../common/  ../ede/ ../semantic/ ../eieio/ ../speedbar/ ../semantic/bovine/ ../semantic/wisent/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> autoloads-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l autoloads-compile-script -f cedet-batch-update-autoloads srecode-loaddefs.el .
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-loaddefs.el
+Generating autoloads for srecode-args.el...
+Generating autoloads for srecode-args.el...done
+Generating autoloads for srecode-compile.el...
+Generating autoloads for srecode-compile.el...done
+Generating autoloads for srecode-cpp.el...
+Generating autoloads for srecode-cpp.el...done
+Generating autoloads for srecode-ctxt.el...
+Generating autoloads for srecode-ctxt.el...done
+Generating autoloads for srecode-dictionary.el...
+Generating autoloads for srecode-dictionary.el...done
+Generating autoloads for srecode-document-vars.el...
+Generating autoloads for srecode-document-vars.el...done
+Generating autoloads for srecode-document.el...
+Generating autoloads for srecode-document.el...done
+Generating autoloads for srecode-el.el...
+Generating autoloads for srecode-el.el...done
+Generating autoloads for srecode-expandproto.el...
+Generating autoloads for srecode-expandproto.el...done
+Generating autoloads for srecode-extract.el...
+Generating autoloads for srecode-extract.el...done
+Generating autoloads for srecode-fields.el...
+Generating autoloads for srecode-fields.el...done
+Generating autoloads for srecode-filters.el...
+Generating autoloads for srecode-filters.el...done
+Generating autoloads for srecode-find.el...
+Generating autoloads for srecode-find.el...done
+Generating autoloads for srecode-getset.el...
+Generating autoloads for srecode-getset.el...done
+Generating autoloads for srecode-insert.el...
+Generating autoloads for srecode-insert.el...done
+Generating autoloads for srecode-java.el...
+Generating autoloads for srecode-java.el...done
+Generating autoloads for srecode-load.el...
+Generating autoloads for srecode-load.el...done
+Generating autoloads for srecode-map.el...
+Generating autoloads for srecode-map.el...done
+Generating autoloads for srecode-mode.el...
+Generating autoloads for srecode-mode.el...done
+Generating autoloads for srecode-semantic.el...
+Generating autoloads for srecode-semantic.el...done
+Generating autoloads for srecode-srt.el...
+Generating autoloads for srecode-srt.el...done
+Generating autoloads for srecode-table.el...
+Generating autoloads for srecode-table.el...done
+Generating autoloads for srecode-template-mode.el...
+Generating autoloads for srecode-template-mode.el...done
+Generating autoloads for srecode-template-wy.el...
+Generating autoloads for srecode-template-wy.el...done
+Generating autoloads for srecode-template.el...
+Generating autoloads for srecode-template.el...done
+Generating autoloads for srecode-test-getset.el...
+Generating autoloads for srecode-test-getset.el...done
+Generating autoloads for srecode-test.el...
+Generating autoloads for srecode-test.el...done
+Generating autoloads for srecode-texi.el...
+Generating autoloads for srecode-texi.el...done
+Generating autoloads for srecode.el...
+Generating autoloads for srecode.el...done
+Saving file /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-loaddefs.el...
+Loading vc-git...
+Updating header...
+Updating header...done
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-loaddefs.el
+(No changes need to be saved)
+"emacs" -batch --no-site-file -l grammar-make-script -f semantic-grammar-batch-build-packages srecode-template.wy
+Compiling Grammars from: /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-grammar.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-template-wy.el...
+Loading vc-git...
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-template-wy.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-template-wy.elc
+for loadpath in . ../common/  ../ede/ ../semantic/ ../eieio/ ../speedbar/ ../semantic/bovine/ ../semantic/wisent/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> srecode-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> srecode-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l srecode-compile-script -f batch-byte-compile srecode.el srecode-mode.el srecode-compile.el srecode-insert.el srecode-template-mode.el srecode-semantic.el srecode-load.el srecode-template.el srecode-dictionary.el srecode-args.el srecode-table.el srecode-filters.el srecode-find.el srecode-ctxt.el srecode-getset.el srecode-cpp.el srecode-expandproto.el srecode-el.el srecode-srt.el srecode-texi.el srecode-map.el srecode-extract.el srecode-java.el srecode-fields.el
+Loading cedet-compat...
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode.elc
+
+In toplevel form:
+srecode-mode.el:31:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-mode.el:31:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-mode.el:31:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-mode.el:31:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-mode.el:31:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-mode.el:31:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In srecode-bind-insert:
+srecode-mode.el:308:13:Warning: `last-command-char' is an obsolete variable
+    (as of Emacs at least 19.34); use `last-command-event' instead.
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-mode.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-compile.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-insert.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-template-mode.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-semantic.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-load.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-template.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-dictionary.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-args.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-table.elc
+
+In srecode-comment-prefix:
+srecode-filters.el:50:42:Warning: reference to free variable
+    `comment-continue'
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-filters.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-find.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-ctxt.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-getset.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-cpp.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-expandproto.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-el.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-srt.elc
+
+In end of data:
+srecode-texi.el:286:1:Warning: the function `srecode-texi-texify-docstring'
+    might not be defined at runtime.
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-texi.elc
+
+In srecode-map-validate-file-for-mode:
+srecode-map.el:360:18:Warning: `semantic-init-hooks' is an obsolete variable;
+    use `semantic-init-hook' instead.
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-map.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-extract.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-java.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-fields.elc
+for loadpath in . ../common/  ../ede/ ../semantic/ ../eieio/ ../speedbar/ ../semantic/bovine/ ../semantic/wisent/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> tests-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> tests-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l tests-compile-script -f batch-byte-compile srecode-test.el srecode-test-getset.el
+Loading cedet-compat...
+Setting up CEDET packages...
+Setting up CEDET packages...done
+
+In end of data:
+srecode-test.el:356:1:Warning: the function `srecode-map-update-map' is not
+    known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-test.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-test-getset.elc
+for loadpath in . ../common/  ../ede/ ../semantic/ ../eieio/ ../speedbar/ ../semantic/bovine/ ../semantic/wisent/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> document-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> document-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l document-compile-script -f batch-byte-compile srecode-document.el srecode-document-vars.el
+Loading cedet-compat...
+
+In toplevel form:
+srecode-document.el:41:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-document.el:41:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-document.el:41:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-document.el:41:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-document.el:41:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-document.el:41:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-document.el:50:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+srecode-document.el:50:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-document.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/srecode/srecode-document-vars.elc
+make -C templates
+make[2]: Nothing to be done for `all'.
+cd "/Users/wgrose/repos/emacs_config/cedet"/ede && make  EMACS="emacs" EMACSFLAGS="-batch --no-site-file" SHELL="bash"
+for loadpath in . ../common/  ../srecode/ ../speedbar/ ../eieio/ ../semantic/bovine/ ../semantic/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> autoloads-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l autoloads-compile-script -f cedet-batch-update-autoloads ede-loaddefs.el .
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-loaddefs.el
+Generating autoloads for autoconf-compat.el...
+Generating autoloads for autoconf-compat.el...done
+Generating autoloads for autoconf-edit.el...
+Generating autoloads for autoconf-edit.el...done
+Generating autoloads for ede-auto.el...
+Generating autoloads for ede-auto.el...done
+Generating autoloads for ede-base.el...
+Generating autoloads for ede-base.el...done
+Generating autoloads for ede-cpp-root.el...
+Generating autoloads for ede-cpp-root.el...done
+Generating autoloads for ede-custom.el...
+Generating autoloads for ede-custom.el...done
+Generating autoloads for ede-dired.el...
+Generating autoloads for ede-dired.el...done
+Generating autoloads for ede-emacs.el...
+Generating autoloads for ede-emacs.el...done
+Generating autoloads for ede-files.el...
+Generating autoloads for ede-files.el...done
+Generating autoloads for ede-generic.el...
+Generating autoloads for ede-generic.el...done
+Generating autoloads for ede-linux.el...
+Generating autoloads for ede-linux.el...done
+Generating autoloads for ede-load.el...
+Generating autoloads for ede-load.el...done
+Generating autoloads for ede-locate.el...
+Generating autoloads for ede-locate.el...done
+Generating autoloads for ede-make.el...
+Generating autoloads for ede-make.el...done
+Generating autoloads for ede-pconf.el...
+Generating autoloads for ede-pconf.el...done
+Generating autoloads for ede-pmake.el...
+Generating autoloads for ede-pmake.el...done
+Generating autoloads for ede-proj-archive.el...
+Generating autoloads for ede-proj-archive.el...done
+Generating autoloads for ede-proj-aux.el...
+Generating autoloads for ede-proj-aux.el...done
+Generating autoloads for ede-proj-comp.el...
+Generating autoloads for ede-proj-comp.el...done
+Generating autoloads for ede-proj-elisp.el...
+Generating autoloads for ede-proj-elisp.el...done
+Generating autoloads for ede-proj-info.el...
+Generating autoloads for ede-proj-info.el...done
+Generating autoloads for ede-proj-misc.el...
+Generating autoloads for ede-proj-misc.el...done
+Generating autoloads for ede-proj-obj.el...
+Generating autoloads for ede-proj-obj.el...done
+Generating autoloads for ede-proj-prog.el...
+Generating autoloads for ede-proj-prog.el...done
+Generating autoloads for ede-proj-scheme.el...
+Generating autoloads for ede-proj-scheme.el...done
+Generating autoloads for ede-proj-shared.el...
+Generating autoloads for ede-proj-shared.el...done
+Generating autoloads for ede-proj-skel.el...
+Generating autoloads for ede-proj-skel.el...done
+Generating autoloads for ede-proj.el...
+Generating autoloads for ede-proj.el...done
+Generating autoloads for ede-shell.el...
+Generating autoloads for ede-shell.el...done
+Generating autoloads for ede-simple.el...
+Generating autoloads for ede-simple.el...done
+Generating autoloads for ede-source.el...
+Generating autoloads for ede-source.el...done
+Generating autoloads for ede-speedbar.el...
+Generating autoloads for ede-speedbar.el...done
+Generating autoloads for ede-srecode.el...
+Generating autoloads for ede-srecode.el...done
+Generating autoloads for ede-system.el...
+Generating autoloads for ede-system.el...done
+Generating autoloads for ede-util.el...
+Generating autoloads for ede-util.el...done
+Generating autoloads for ede.el...
+Generating autoloads for ede.el...done
+Generating autoloads for makefile-edit.el...
+Generating autoloads for makefile-edit.el...done
+Generating autoloads for project-am.el...
+Generating autoloads for project-am.el...done
+Saving file /Users/wgrose/repos/emacs_config/cedet/ede/ede-loaddefs.el...
+Loading vc-git...
+Updating header...
+Updating header...done
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-loaddefs.el
+(No changes need to be saved)
+for loadpath in . ../common/  ../srecode/ ../speedbar/ ../eieio/ ../semantic/bovine/ ../semantic/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> init-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> init-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l init-compile-script -f batch-byte-compile ede-load.el
+Loading cedet-compat...
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-load.elc
+for loadpath in . ../common/  ../srecode/ ../speedbar/ ../eieio/ ../semantic/bovine/ ../semantic/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> ede-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> ede-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l ede-compile-script -f batch-byte-compile ede.el ede-auto.el ede-base.el ede-custom.el ede-dired.el ede-source.el ede-util.el ede-system.el ede-speedbar.el ede-srecode.el ede-files.el ede-locate.el ede-make.el ede-shell.el
+Loading cedet-compat...
+
+In ede-minor-mode:
+ede.el:403:19:Warning: cedet-called-interactively-p called with 0 arguments,
+    but requires 1
+
+In ede-reset-all-buffers:
+ede.el:437:28:Warning: `save-excursion' defeated by `set-buffer'
+
+In global-ede-mode:
+ede.el:454:37:Warning: `find-file-hooks' is an obsolete variable (as of Emacs
+    22.1); use `find-file-hook' instead.
+
+In ede-apply-preprocessor-map:
+ede.el:1192:15:Warning: assignment to free variable
+    `semantic-lex-spp-project-macro-symbol-obarray'
+
+In end of data:
+ede.el:1315:1:Warning: the following functions might not be defined at
+    runtime: ede-directory-get-open-project, ede-directory-project-p,
+    ede-project-directory-remove-hash, ede-toplevel-project, ede-toplevel,
+    ede-up-directory, ede-directory-get-toplevel-open-project,
+    ede-find-subproject-for-directory, ede-convert-path
+ede.el:1315:1:Warning: the following functions are not known to be defined:
+    ede-commit-project, semantic-lex-make-spp-table
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-auto.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-base.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-custom.elc
+
+In ede-dired-minor-mode:
+ede-dired.el:78:18:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-dired.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-source.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-util.elc
+
+In end of data:
+ede-system.el:139:1:Warning: the function `vc-directory' is not known to be
+    defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-system.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-speedbar.elc
+
+In end of data:
+ede-srecode.el:101:1:Warning: the following functions are not known to be
+    defined: srecode-map-update-map, srecode-resolve-arguments,
+    srecode-dictionary-set-value
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-srecode.elc
+
+In end of data:
+ede-files.el:510:1:Warning: the following functions are not known to be
+    defined: ede-locate-flush-hash, ede-enable-locate-on-project,
+    ede-locate-file-in-hash, ede-locate-add-file-to-hash,
+    ede-locate-file-in-project
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-files.elc
+
+In ede-locate-locate::ede-locate-file-in-project-impl:
+ede-locate.el:212:26:Warning: reference to free variable `locate-command'
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-locate.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-make.elc
+
+In end of data:
+ede-shell.el:78:1:Warning: the function `comint-send-input' is not known to be
+    defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-shell.elc
+for loadpath in . ../common/  ../srecode/ ../speedbar/ ../eieio/ ../semantic/bovine/ ../semantic/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> proj-project-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> proj-project-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l proj-project-compile-script -f batch-byte-compile ede-proj.el ede-pmake.el ede-pconf.el ede-proj-elisp.el ede-proj-misc.el ede-proj-obj.el ede-proj-prog.el ede-proj-archive.el ede-proj-shared.el ede-proj-info.el ede-proj-scheme.el ede-proj-aux.el ede-proj-comp.el
+Loading cedet-compat...
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-proj.elc
+
+In end of data:
+ede-pmake.el:697:1:Warning: the following functions are not known to be
+    defined: ede-proj-dist-makefile, ede-srecode-setup, ede-srecode-insert,
+    ede-proj-makefile-target-name, ede-proj-compilers, ede-proj-linkers
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-pmake.elc
+
+In ede-proj-project::ede-proj-configure-synchronize:
+ede-pconf.el:126:18:Warning: reference to free variable
+    `compilation-in-progress'
+
+In end of data:
+ede-pconf.el:187:1:Warning: the following functions are not known to be
+    defined: ede-proj-dist-makefile, ede-proj-compilers, ede-proj-linkers
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-pconf.elc
+
+In end of data:
+ede-proj-elisp.el:437:1:Warning: the following functions are not known to be
+    defined: ede-proj-automake-p, ede-proj-makefile-target-name
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-proj-elisp.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-proj-misc.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-proj-obj.elc
+
+In end of data:
+ede-proj-prog.el:145:1:Warning: the function `ede-shell-run-something' is not
+    known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-proj-prog.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-proj-archive.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-proj-shared.elc
+
+In end of data:
+ede-proj-info.el:187:1:Warning: the function `ede-proj-automake-p' is not
+    known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-proj-info.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-proj-scheme.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-proj-aux.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-proj-comp.elc
+for loadpath in . ../common/  ../srecode/ ../speedbar/ ../eieio/ ../semantic/bovine/ ../semantic/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> projects-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> projects-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l projects-compile-script -f batch-byte-compile project-am.el ede-simple.el ede-cpp-root.el ede-emacs.el ede-linux.el ede-generic.el
+Loading cedet-compat...
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/project-am.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-simple.elc
+
+In ede-cpp-root-project::ede-set-project-variables:
+ede-cpp-root.el:481:11:Warning: assignment to free variable
+    `semantic-lex-spp-project-macro-symbol-obarray'
+
+In end of data:
+ede-cpp-root.el:533:1:Warning: the following functions are not known to be
+    defined: semantic-lex-make-spp-table, semanticdb-needs-refresh-p,
+    semanticdb-refresh-table
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-cpp-root.elc
+
+In end of data:
+ede-emacs.el:297:1:Warning: the function `ede-emacs-project' might not be
+    defined at runtime.
+ede-emacs.el:297:1:Warning: the following functions are not known to be
+    defined: semanticdb-needs-refresh-p, semanticdb-refresh-table
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-emacs.elc
+
+In end of data:
+ede-linux.el:243:1:Warning: the function `ede-linux-project' might not be
+    defined at runtime.
+ede-linux.el:243:1:Warning: the following functions are not known to be
+    defined: semanticdb-needs-refresh-p, semanticdb-refresh-table
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-linux.elc
+
+In ede-generic-config::eieio-done-customizing:
+ede-generic.el:347:16:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+ede-generic.el:439:1:Warning: the following functions are not known to be
+    defined: eieio-build-class-alist, semanticdb-needs-refresh-p,
+    semanticdb-refresh-table, ede-customize-project
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/ede-generic.elc
+for loadpath in . ../common/  ../srecode/ ../speedbar/ ../eieio/ ../semantic/bovine/ ../semantic/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> aux-lisp-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l aux-lisp-compile-script -f batch-byte-compile autoconf-edit.el autoconf-compat.el makefile-edit.el
+
+In end of data:
+autoconf-edit.el:430:1:Warning: the following functions are not known to be
+    defined: ede-srecode-setup, ede-srecode-insert
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/autoconf-edit.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/autoconf-compat.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/ede/makefile-edit.elc
+make -C templates
+make[2]: Nothing to be done for `all'.
+cd "/Users/wgrose/repos/emacs_config/cedet"/cogre && make  EMACS="emacs" EMACSFLAGS="-batch --no-site-file" SHELL="bash"
+"emacs" -batch --no-site-file -l grammar-make-script -f semantic-grammar-batch-build-packages wisent-dot.wy
+Compiling Grammars from: /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-grammar.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/cogre/wisent-dot-wy.el...
+Loading vc-git...
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/wisent-dot-wy.el
+Grammar in wisent-dot-wy.el contains 1 reduce/reduce conflict
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/wisent-dot-wy.elc
+for loadpath in . ../ede/ ../common/ ../semantic/ ../eieio/ ../semantic/wisent/  ../srecode/ ../speedbar/ ../semantic/bovine/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> autoloads-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l autoloads-compile-script -f cedet-batch-update-autoloads cogre-loaddefs.el .
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-loaddefs.el
+Generating autoloads for cogre-ascii.el...
+Generating autoloads for cogre-ascii.el...done
+Generating autoloads for cogre-convert.el...
+Generating autoloads for cogre-convert.el...done
+Generating autoloads for cogre-dot-mode.el...
+Generating autoloads for cogre-dot-mode.el...done
+Generating autoloads for cogre-layout.el...
+Generating autoloads for cogre-layout.el...done
+Generating autoloads for cogre-load.el...
+Generating autoloads for cogre-load.el...done
+Generating autoloads for cogre-mode.el...
+Generating autoloads for cogre-mode.el...done
+Generating autoloads for cogre-periodic.el...
+Generating autoloads for cogre-periodic.el...done
+Generating autoloads for cogre-semantic.el...
+Generating autoloads for cogre-semantic.el...done
+Generating autoloads for cogre-srecode.el...
+Generating autoloads for cogre-srecode.el...done
+Generating autoloads for cogre-uml.el...
+Generating autoloads for cogre-uml.el...done
+Generating autoloads for cogre-utest.el...
+Generating autoloads for cogre-utest.el...done
+Generating autoloads for cogre.el...
+Generating autoloads for cogre.el...done
+Generating autoloads for picture-hack.el...
+Generating autoloads for picture-hack.el...done
+Generating autoloads for wisent-dot-wy.el...
+Generating autoloads for wisent-dot-wy.el...done
+Generating autoloads for wisent-dot.el...
+Generating autoloads for wisent-dot.el...done
+Saving file /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-loaddefs.el...
+Loading vc-git...
+Updating header...
+Updating header...done
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-loaddefs.el
+(No changes need to be saved)
+for loadpath in . ../ede/ ../common/ ../semantic/ ../eieio/ ../semantic/wisent/  ../srecode/ ../speedbar/ ../semantic/bovine/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> init-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> init-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l init-compile-script -f batch-byte-compile cogre-load.el
+Loading cedet-compat...
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-load.elc
+for loadpath in . ../ede/ ../common/ ../semantic/ ../eieio/ ../semantic/wisent/  ../srecode/ ../speedbar/ ../semantic/bovine/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> dot-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> dot-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l dot-compile-script -f batch-byte-compile wisent-dot.el cogre-dot-mode.el
+Loading cedet-compat...
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/wisent-dot.elc
+
+In toplevel form:
+cogre-dot-mode.el:54:11:Warning: assignment to free variable
+    `graphviz-dot-mode-syntax-table'
+
+In end of data:
+cogre-dot-mode.el:115:1:Warning: the function `graphviz-dot-mode' is not known
+    to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-dot-mode.elc
+for loadpath in . ../ede/ ../common/ ../semantic/ ../eieio/ ../semantic/wisent/  ../srecode/ ../speedbar/ ../semantic/bovine/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> Mode-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> Mode-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l Mode-compile-script -f batch-byte-compile cogre-mode.el
+Loading cedet-compat...
+
+In cogre-mode:
+cogre-mode.el:283:46:Warning: assignment to free variable `tool-bar-map'
+
+In cogre-killring-active:
+cogre-mode.el:373:22:Warning: reference to free variable `senator-tag-ring'
+
+In cogre-new-node:
+cogre-mode.el:432:14:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In cogre-new-link:
+cogre-mode.el:449:12:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In cogre-copy-element:
+cogre-mode.el:500:18:Warning: reference to free variable `senator-tag-ring'
+
+In cogre-yank-element:
+cogre-mode.el:508:21:Warning: reference to free variable `senator-tag-ring'
+
+In cogre-set-element-name:
+cogre-mode.el:587:10:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In cogre-set-scoped-node-package:
+cogre-mode.el:603:10:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In end of data:
+cogre-mode.el:891:1:Warning: the following functions are not known to be
+    defined: ring-empty-p, ring-insert, ring-ref, cogre-peer-jump-to-source,
+    track-mouse, popup-menu
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-mode.elc
+for loadpath in . ../ede/ ../common/ ../semantic/ ../eieio/ ../semantic/wisent/  ../srecode/ ../speedbar/ ../semantic/bovine/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> hacks-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l hacks-compile-script -f batch-byte-compile picture-hack.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/picture-hack.elc
+for loadpath in . ../ede/ ../common/ ../semantic/ ../eieio/ ../semantic/wisent/  ../srecode/ ../speedbar/ ../semantic/bovine/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> COGRE-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> COGRE-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l COGRE-compile-script -f batch-byte-compile cogre.el cogre-uml.el cogre-periodic.el cogre-ascii.el cogre-srecode.el cogre-convert.el cogre-layout.el cogre-semantic.el
+Loading cedet-compat...
+
+In cogre-default-node:
+cogre.el:386:20:Warning: cedet-called-interactively-p called with 0 arguments,
+    but requires 1
+
+In cogre-default-link:
+cogre.el:430:20:Warning: cedet-called-interactively-p called with 0 arguments,
+    but requires 1
+
+In cogre-graph-element::eieio-done-customizing:
+cogre.el:504:38:Warning: `save-excursion' defeated by `set-buffer'
+
+In cogre-base-graph::eieio-done-customizing:
+cogre.el:507:37:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre.elc
+
+In cogre-uml-sort-for-lineage:
+cogre-uml.el:432:12:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In end of data:
+cogre-uml.el:440:1:Warning: the following functions are not known to be
+    defined: semantic--find-tags-by-function, data-debug-show-stuff
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-uml.elc
+Setting up CEDET packages...
+Setting up CEDET packages...done
+Warning: defvar ignored because tool-bar-map is let-bound
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-periodic.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-ascii.elc
+
+In end of data:
+cogre-srecode.el:154:1:Warning: the function `srecode-load-tables-for-mode'
+    might not be defined at runtime.
+cogre-srecode.el:154:1:Warning: the function `srecode-map-update-map' is not
+    known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-srecode.elc
+
+In cogre-export-dot-postscript-print:
+cogre-convert.el:147:6:Warning: `save-excursion' defeated by `set-buffer'
+
+In cogre-base-graph::cogre-export-dot-method:
+cogre-convert.el:167:38:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+cogre-convert.el:399:1:Warning: the following functions might not be defined
+    at runtime: srecode-insert, srecode-semantic-insert-tag
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-convert.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-layout.elc
+
+In cogre-export-semantic:
+cogre-semantic.el:222:10:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In cogre-base-graph::cogre-export-semantic-method:
+cogre-semantic.el:230:23:Warning: `save-excursion' defeated by `set-buffer'
+
+In cogre-export-code:
+cogre-semantic.el:265:44:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+cogre-semantic.el:428:1:Warning: the following functions might not be defined
+    at runtime: srecode-load-tables-for-mode, srecode-insert,
+    srecode-semantic-insert-tag
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-semantic.elc
+for loadpath in . ../ede/ ../common/ ../semantic/ ../eieio/ ../semantic/wisent/  ../srecode/ ../speedbar/ ../semantic/bovine/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> utests-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> utests-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l utests-compile-script -f batch-byte-compile cogre-utest.el
+Loading cedet-compat...
+Setting up CEDET packages...
+Setting up CEDET packages...done
+Warning: defvar ignored because tool-bar-map is let-bound
+
+In cogre-utest-quick-class:
+cogre-utest.el:123:39:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/repos/emacs_config/cedet/cogre/cogre-utest.elc
+make -C tests
+make[2]: Nothing to be done for `all'.
+make -C templates
+make[2]: Nothing to be done for `all'.
+cd "/Users/wgrose/repos/emacs_config/cedet"/contrib && make  EMACS="emacs" EMACSFLAGS="-batch --no-site-file" SHELL="bash"
+for loadpath in . ../common/  ../ede/ ../semantic/ ../eieio/ ../semantic/bovine/ ../speedbar/ ../semantic/wisent/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> autoloads-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l autoloads-compile-script -f cedet-batch-update-autoloads contrib-loaddefs.el .
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/contrib-loaddefs.el
+Generating autoloads for cedet-contrib-load.el...
+Generating autoloads for cedet-contrib-load.el...done
+Generating autoloads for cedet-contrib.el...
+Generating autoloads for cedet-contrib.el...done
+Generating autoloads for eassist.el...
+Generating autoloads for eassist.el...done
+Generating autoloads for ede-gnustep.el...
+Generating autoloads for ede-gnustep.el...done
+Generating autoloads for semantic-ectag-scala.el...
+Generating autoloads for semantic-ectag-scala.el...done
+Generating autoloads for semantic-tag-folding.el...
+Generating autoloads for semantic-tag-folding.el...done
+Generating autoloads for wisent-csharp-wy.el...
+Generating autoloads for wisent-csharp-wy.el...done
+Generating autoloads for wisent-csharp.el...
+Generating autoloads for wisent-csharp.el...done
+Generating autoloads for wisent-php-wy.el...
+Generating autoloads for wisent-php-wy.el...done
+Generating autoloads for wisent-php.el...
+Generating autoloads for wisent-php.el...done
+Generating autoloads for wisent-ruby-wy.el...
+Generating autoloads for wisent-ruby-wy.el...done
+Generating autoloads for wisent-ruby.el...
+Generating autoloads for wisent-ruby.el...done
+Saving file /Users/wgrose/repos/emacs_config/cedet/contrib/contrib-loaddefs.el...
+Loading vc-git...
+Updating header...
+Updating header...done
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/contrib-loaddefs.el
+(No changes need to be saved)
+for loadpath in . ../common/  ../ede/ ../semantic/ ../eieio/ ../semantic/bovine/ ../speedbar/ ../semantic/wisent/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> init-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> init-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l init-compile-script -f batch-byte-compile cedet-contrib-load.el
+Loading cedet-compat...
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/cedet-contrib-load.elc
+for loadpath in . ../common/  ../ede/ ../semantic/ ../eieio/ ../semantic/bovine/ ../speedbar/ ../semantic/wisent/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> setup-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l setup-compile-script -f batch-byte-compile cedet-contrib.el
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/cedet-contrib.elc
+"emacs" -batch --no-site-file -l grammar-make-script -f semantic-grammar-batch-build-packages wisent-csharp.wy wisent-ruby.wy wisent-php.wy
+Compiling Grammars from: /Users/wgrose/repos/emacs_config/cedet/semantic/semantic-grammar.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-csharp-wy.el...
+Loading vc-git...
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-csharp-wy.el
+Grammar in wisent-csharp-wy.el contains 2 useless nonterminals and 3 useless rules
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-csharp-wy.elc
+Saving file /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-ruby-wy.el...
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-ruby-wy.el
+Grammar in wisent-ruby-wy.el contains 4 useless nonterminals and 9 useless rules
+
+In toplevel form:
+wisent-ruby-wy.el:438:25:Warning: reference to free variable
+    `semantic-lex-ruby-assigned-vars'
+
+In end of data:
+wisent-ruby-wy.el:613:1:Warning: the following functions are not known to be
+    defined: process-assignment-variables, set-current-protection-context,
+    set-tag-protection
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-ruby-wy.elc
+*Warning* default value of <<no-type>> tokens changed to T_IF, was T_EXIT
+*Warning* default value of <code> tokens changed to EPILOGUE, was PROLOGUE
+Saving file /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-php-wy.el...
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-php-wy.el
+Grammar in wisent-php-wy.el contains 1 shift/reduce conflict and 136 reduce/reduce conflicts
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-php-wy.elc
+for loadpath in . ../common/  ../ede/ ../semantic/ ../eieio/ ../semantic/bovine/ ../speedbar/ ../semantic/wisent/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> lisp-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> lisp-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l lisp-compile-script -f batch-byte-compile wisent-csharp.el semantic-tag-folding.el eassist.el wisent-ruby.el wisent-php.el ede-gnustep.el semantic-ectag-scala.el
+Loading cedet-compat...
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-csharp.elc
+
+In toplevel form:
+semantic-tag-folding.el:71:1:Warning: cedet-called-interactively-p called with
+    0 arguments, but requires 1
+semantic-tag-folding.el:71:1:Warning: cedet-called-interactively-p called with
+    0 arguments, but requires 1
+
+In semantic-tag-folding-mode:
+semantic-tag-folding.el:257:8:Warning: cedet-called-interactively-p called
+    with 0 arguments, but requires 1
+
+In semantic-tag-folding-get-attribute-overlay:
+semantic-tag-folding.el:536:42:Warning: Function `remove-if-not' from cl
+    package called at runtime
+
+In semantic-tag-folding-get-overlay:
+semantic-tag-folding.el:684:45:Warning: Function `remove-if-not' from cl
+    package called at runtime
+
+In end of data:
+semantic-tag-folding.el:761:1:Warning: the following functions are not known
+    to be defined: define-fringe-bitmap, fringe-bitmaps-at-pos
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/semantic-tag-folding.elc
+
+In eassist-switch-h-cpp:
+eassist.el:140:70:Warning: Function `find-if' from cl package called at
+    runtime
+
+In eassist-function-tags:
+eassist.el:194:35:Warning: Function `mapcan' from cl package called at runtime
+
+In eassist-format-triplets:
+eassist.el:212:69:Warning: Function `reduce' from cl package called at runtime
+eassist.el:213:69:Warning: Function `reduce' from cl package called at runtime
+eassist.el:227:6:Warning: Function `reduce' from cl package called at runtime
+
+In eassist-matches-all:
+eassist.el:255:96:Warning: Function `reduce' from cl package called at runtime
+
+In eassist-search-string-updated:
+eassist.el:263:10:Warning: Function `remove-if-not' from cl package called at
+    runtime
+eassist.el:278:22:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+
+In eassist-mode-init:
+eassist.el:363:20:Warning: Function `mapcar*' from cl package called at
+    runtime
+eassist.el:368:75:Warning: Function `position-if' from cl package called at
+    runtime
+eassist.el:371:22:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/eassist.elc
+
+In toplevel form:
+wisent-ruby.el:132:3:Warning: reference to free variable `ruby-block-beg-re'
+
+In wisent-ruby-lexer:
+wisent-ruby.el:238:13:Warning: reference to free variable `ruby-block-beg-re'
+
+In process-assignment-variables:
+wisent-ruby.el:274:59:Warning: Function `member*' from cl package called at
+    runtime
+
+In end of data:
+wisent-ruby.el:323:29:Warning: the following functions are not known to be
+    defined: ruby-end-of-block, word-at-point
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-ruby.elc
+*Warning* default value of <<no-type>> tokens changed to T_IF, was T_EXIT
+*Warning* default value of <code> tokens changed to EPILOGUE, was PROLOGUE
+
+In toplevel form:
+wisent-php.el:37:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+wisent-php.el:37:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+wisent-php.el:37:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+wisent-php.el:37:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+wisent-php.el:37:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+wisent-php.el:37:13:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/wisent-php.elc
+
+In ede-step-project::ede-proj-makefile-create:
+ede-gnustep.el:593:12:Warning: `save-excursion' defeated by `set-buffer'
+ede-gnustep.el:741:51:Warning: `save-excursion' defeated by `set-buffer'
+
+In ede-step-target::project-delete-target:
+ede-gnustep.el:843:27:Warning: `save-excursion' defeated by `set-buffer'
+
+In ede-step-project::project-rescan:
+ede-gnustep.el:1094:73:Warning: Function `remove-duplicates' from cl package
+    called at runtime
+
+In end of data:
+ede-gnustep.el:1299:1:Warning: the function `string-file-contents' is not
+    known to be defined.
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/ede-gnustep.elc
+
+In toplevel form:
+semantic-ectag-scala.el:29:20:Warning: assignment to free variable
+    `semantic-ectag-lang'
+semantic-ectag-scala.el:32:20:Warning: assignment to free variable
+    `semantic-ectag-lang-kind'
+semantic-ectag-scala.el:38:20:Warning: assignment to free variable
+    `semantic-ectag-lang-extra-flags'
+
+In end of data:
+semantic-ectag-scala.el:83:1:Warning: the following functions are not known to
+    be defined: semantic-load-enable-code-helpers, global-srecode-minor-mode
+Wrote /Users/wgrose/repos/emacs_config/cedet/contrib/semantic-ectag-scala.elc
+cd "/Users/wgrose/repos/emacs_config/cedet"/tests && make  EMACS="emacs" EMACSFLAGS="-batch --no-site-file" SHELL="bash"
+for loadpath in . ../speedbar/ ../cogre/ ../contrib/ ../ede/ ../srecode/ ../semantic/wisent/ ../semantic/bovine/ ../semantic/ ../eieio/ ../common/; do \
+	   echo "(add-to-list 'load-path \"$loadpath\")" >> Lisp-compile-script; \
+	done;
+for preload in cedet-compat; do \
+	   echo "(load \"$preload\")" >> Lisp-compile-script; \
+	done;
+"emacs" -batch --no-site-file -l Lisp-compile-script -f batch-byte-compile cedet-integ-test.el cit-cpp.el cit-el.el cit-texi.el cit-load.el cit-srec.el cit-gnustep.el cit-uml.el cit-dist.el cit-symref.el cit-externaldb.el
+Loading cedet-compat...
+
+In cit-wait-for-compilation:
+cedet-integ-test.el:362:10:Warning: reference to free variable
+    `compilation-in-progress'
+
+In cit-check-compilation-for-error:
+cedet-integ-test.el:371:51:Warning: `save-excursion' defeated by `set-buffer'
+
+In cit-run-target:
+cedet-integ-test.el:392:32:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+cedet-integ-test.el:410:1:Warning: the following functions are not known to be
+    defined: srecode-load-tables-for-mode, srecode-semantic-insert-tag,
+    ede-shell-buffer
+Wrote /Users/wgrose/repos/emacs_config/cedet/tests/cedet-integ-test.elc
+
+In end of data:
+cit-cpp.el:256:1:Warning: the following functions are not known to be defined:
+    cit-srecode-fill-with-stuff, cit-compile-and-wait, cit-file,
+    cit-run-target, cit-wait-for-compilation, cit-check-compilation-for-error
+Wrote /Users/wgrose/repos/emacs_config/cedet/tests/cit-cpp.elc
+
+In end of data:
+cit-el.el:126:1:Warning: the following functions are not known to be defined:
+    cit-srecode-fill-with-stuff, srecode-insert, cit-compile-and-wait
+Wrote /Users/wgrose/repos/emacs_config/cedet/tests/cit-el.elc
+
+In end of data:
+cit-texi.el:97:1:Warning: the following functions are not known to be defined:
+    cit-srecode-fill-with-stuff, srecode-texi-add-menu,
+    srecode-semantic-insert-tag, cit-srecode-verify-tags, cit-compile-and-wait
+Wrote /Users/wgrose/repos/emacs_config/cedet/tests/cit-texi.elc
+
+In toplevel form:
+cit-load.el:53:7:Warning: assignment to free variable `srecode-map-save-file'
+Wrote /Users/wgrose/repos/emacs_config/cedet/tests/cit-load.elc
+
+In cit-srecode-map-test:
+cit-srec.el:33:19:Warning: reference to free variable `cit-src-dir'
+cit-srec.el:34:18:Warning: reference to free variable `srecode-map-load-path'
+cit-srec.el:50:13:Warning: assignment to free variable `srecode-map-load-path'
+
+In end of data:
+cit-srec.el:68:1:Warning: the following functions are not known to be defined:
+    srecode-map-update-map, srecode-load-tables-for-mode,
+    srecode-template-get-table, srecode-table
+Wrote /Users/wgrose/repos/emacs_config/cedet/tests/cit-srec.elc
+
+In cit-step-test-compilation:
+cit-gnustep.el:105:8:Warning: reference to free variable
+    `compilation-in-progress'
+Wrote /Users/wgrose/repos/emacs_config/cedet/tests/cit-gnustep.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/tests/cit-uml.elc
+Wrote /Users/wgrose/repos/emacs_config/cedet/tests/cit-dist.elc
+
+In cit-symref-quick-find-test:
+cit-symref.el:75:11:Warning: assignment to free variable
+    `semantic-symref-tool'
+
+In end of data:
+cit-symref.el:117:1:Warning: the following functions are not known to be
+    defined: semantic-symref-list-expand-all,
+    semantic-symref-list-rename-open-hits
+Wrote /Users/wgrose/repos/emacs_config/cedet/tests/cit-symref.elc
+
+In cit-gnu-externaldb-test-one:
+cit-externaldb.el:167:11:Warning: assignment to free variable
+    `semantic-symref-tool'
+
+In end of data:
+cit-externaldb.el:184:1:Warning: the following functions are not known to be
+    defined: ede-enable-locate-on-project, semanticdb-find-result-length,
+    semantic-symref-detect-symref-tool
+Wrote /Users/wgrose/repos/emacs_config/cedet/tests/cit-externaldb.elc

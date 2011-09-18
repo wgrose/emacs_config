@@ -14,6 +14,7 @@
 
 
 (defvar running-on-windows (memq system-type '(windows-nt cygwin)))
+(defvar running-on-darwin (string-equal system-type "darwin"))
 (defvar running-on-linux (not running-on-windows))
 (defvar running-on-x (eq window-system 'x))
 (defvar running-on-z (string-equal system-name "zaurus.chicago"))
@@ -26,6 +27,15 @@
   ;(setenv "SHELL" "/bin/bash") 
 
 )
+
+(if running-on-darwin
+    (progn
+      (setq ns-command-modifier 'meta)
+      ;; Leave old Option key modifier as useful in terminal.
+      ;;(setq ns-alternate-modifier 'none)
+      ))
+
+
 
 (if running-on-windows
     (custom-set-variables
@@ -44,6 +54,35 @@
 (require 'mmm-auto)
 (require 'lorem-ipsum)
 (require 'cc-mode)
+
+
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/jde/lisp"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/cedet"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/elib"))
+
+;; Need cedet-split-string for seamntic-c.
+(require 'cedet-compat)
+
+;;semantic stuff
+(require 'semantic-c)
+(require 'semantic-el)
+(require 'semantic-make)
+(require 'semantic-imenu)
+
+(add-hook 'speedbar-load-hook (lambda () (require 'semantic-sb)))
+(autoload 'semantic-bnf-mode "semantic-bnf" "Mode for Boine Normal Form. " t )
+(add-to-list 'auto-mode-alist '("\\.bnf$" . semantic-bnf-mode))
+
+(autoload 'semantic-minor-mode "semantic-mode" "Mode for managing semantic parsing." t ) 
+;;end of semantic code
+
+;;speedbar
+(autoload 'speedbar-frame-mode "speedbar" "Popup a speedbar frame" t)
+(autoload 'speedbar-get-focus "speedbar" "Jump to speedbar frame" t)
+
+;;end of speedbar
+
+(require 'jde)
 
 ;;general jazz
 ;;color theme
@@ -139,7 +178,8 @@
 (global-set-key "\C-x\C-g" 'magit-status)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key [f8] 'mmm-parse-buffer)
-(scroll-bar-mode nil)
+(if (boundp 'scroll-bar-mode)
+    (scroll-bar-mode nil))
 (tool-bar-mode 0)
 (menu-bar-mode 1)
 (setq inhibit-startup-message t)
@@ -304,6 +344,7 @@
 (local-set-key "\M-\t" 'ispell-complete-word)))
 ; enable tex parser, also very helpful
 (setq ispell-enable-tex-parser t)
+(setq mac-command-key-is-meta t)
 (server-start)
 
 
