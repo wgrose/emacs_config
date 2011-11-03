@@ -60,7 +60,9 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/cedet"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/elib"))
 
-;; Need cedet-split-string for seamntic-c.
+(load-file "~/.emacs.d/site-lisp/cedet/common/cedet.el")
+
+;; Need cedet-split-string for semantic-c.
 (require 'cedet-compat)
 
 ;;semantic stuff
