@@ -311,15 +311,21 @@
 (define-key-after (lookup-key global-map [menu-bar tools])
   [speedbar] '("Speedbar" . speedbar-frame-mode) [calendar])
 
+;; Add exit confirmation.
+(setq confirm-kill-emacs 'yes-or-no-p)
 
+;; Follow symlinks to the real file, w/o prompting us.
+(setq vc-follow-symlinks t)
 
-;;(provide 'startup)
+;; Add zip to emacs compress/uncompress exts.
+(eval-after-load "dired-aux"
+  '(add-to-list 'dired-compress-file-suffixes
+                '("\\.zip\\'" ".zip" "unzip")))
 
 
 (put 'upcase-region 'disabled nil)
 
 (put 'downcase-region 'disabled nil)
-
 
 (autoload 'ispell-word "ispell"
 "Check the spelling of word in buffer." t)
