@@ -1,0 +1,715 @@
+Loading /Users/wgrose/.emacs.d/site-lisp/cedet/common/cedet.el (source)...
+Setting up CEDET packages...
+Setting up CEDET packages...done
+
+In bsh-compilation-buffer::bsh-compilation-buffer-set-mode:
+beanshell.el:308:36:Warning: assignment to free variable
+    `compilation-error-regexp-alist'
+
+In bsh-compilation-buffer::bsh-compilation-buffer-filter:
+beanshell.el:363:15:Warning: reference to free variable
+    `compilation-scroll-output'
+
+In bsh::bsh-detect-java-eval-error:
+beanshell.el:592:22:Warning: `save-excursion' defeated by `set-buffer'
+
+In get-bsh:
+beanshell.el:724:23:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+beanshell.el:942:1:Warning: the function `compilation-handle-exit' is not
+    known to be defined.
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/beanshell.elc
+
+In efc-compiler::create-buffer:
+efc.el:336:31:Warning: reference to free variable
+    `compilation-error-regexp-alist'
+efc.el:346:25:Warning: reference to free variable `jde-xemacsp'
+efc.el:347:19:Warning: reference to free variable
+    `compilation-parse-errors-function'
+efc.el:387:34:Warning: assignment to free variable
+    `compilation-error-regexp-alist'
+
+In efc-compiler::exec:
+efc.el:441:37:Warning: `save-excursion' defeated by `set-buffer'
+efc.el:456:26:Warning: reference to free variable `compilation-in-progress'
+efc.el:456:26:Warning: assignment to free variable `compilation-in-progress'
+efc.el:459:13:Warning: assignment to free variable `compilation-last-buffer'
+
+In efc-collection::efc-coll-type-compatible-p:
+efc.el:483:16:Warning: Function `typep' from cl package called at runtime
+
+In efc-list-iterator::initialize-instance:
+efc.el:587:39:Warning: Function `typep' from cl package called at runtime
+
+In end of data:
+efc.el:705:1:Warning: the function `compilation-set-window-height' is not
+    known to be defined.
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/efc.elc
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jcomplete.elc
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-annotations.elc
+
+In jde-ant-build:
+jde-ant.el:461:21:Warning: reference to free variable `jde-xemacsp'
+
+In jde-ant-compile-internal:
+jde-ant.el:560:40:Warning: reference to free variable
+    `compilation-parse-errors-function'
+jde-ant.el:519:34:Warning: reference to free variable
+    `compilation-error-regexp-alist'
+jde-ant.el:563:23:Warning: assignment to free variable
+    `compilation-parse-errors-function'
+jde-ant.el:565:40:Warning: assignment to free variable
+    `compilation-error-regexp-alist'
+jde-ant.el:585:22:Warning: reference to free variable `jde-xemacsp'
+jde-ant.el:589:15:Warning: assignment to free variable
+    `compilation-last-buffer'
+
+In jde-ant-filter:
+jde-ant.el:631:22:Warning: reference to free variable `jde-xemacsp'
+jde-ant.el:632:21:Warning: reference to free variable
+    `compilation-scroll-output'
+
+In jde-ant-find-build-file:
+jde-ant.el:671:50:Warning: Function `find' from cl package called at runtime
+
+In jde-ant-get-target-alist:
+jde-ant.el:693:20:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+jde-ant.el:744:1:Warning: the following functions are not known to be defined:
+    compilation-set-window-height, compilation-handle-exit
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-ant.elc
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-autoload.elc
+
+In toplevel form:
+jde-bookmark.el:33:1:Error: Symbol's function definition is void: jde-require
+
+In jde-jeval:
+jde-bsh.el:202:23:Warning: value returned from (log java-statement (quote
+    request)) is unused
+jde-bsh.el:202:23:Warning: value returned from (log output (quote response))
+    is unused
+jde-bsh.el:205:17:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-jeval-cm:
+jde-bsh.el:301:20:Warning: `save-excursion' defeated by `set-buffer'
+jde-bsh.el:326:11:Warning: assignment to free variable
+    `compilation-last-buffer'
+
+In end of data:
+jde-bsh.el:394:1:Warning: the following functions are not known to be defined:
+    jde-find-jde-data-directory, compilation-set-window-height
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-bsh.elc
+
+In toplevel form:
+jde-bug.el:39:1:Warning: cl package required at runtime
+jde-bug.el:40:1:Error: Symbol's function definition is void: jde-require
+
+In jde-run-vm::jde-checkstyle-get-property-args:
+jde-checkstyle.el:202:6:Warning: reference to free variable
+    `jde-run-option-properties'
+
+In jde-checkstyle-checker::jde-checkstyle-create-checker-buffer:
+jde-checkstyle.el:278:20:Warning: `compilation-finish-function' is an obsolete
+    variable (as of Emacs 22.1); use `compilation-finish-functions', but it
+    works a little differently.
+jde-checkstyle.el:278:20:Warning: `compilation-finish-function' is an obsolete
+    variable (as of Emacs 22.1); use `compilation-finish-functions', but it
+    works a little differently.
+
+In jde-checkstyle-checker::jde-checkstyle-exec:
+jde-checkstyle.el:317:12:Warning: reference to free variable `jde-xemacsp'
+jde-checkstyle.el:365:37:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-checkstyle:
+jde-checkstyle.el:418:19:Warning: reference to free variable `jde-xemacsp'
+
+In end of data:
+jde-checkstyle.el:437:1:Warning: the following functions are not known to be
+    defined: jde-run-get-vm, jde-find-jde-data-directory, jde-build-classpath,
+    jde-normalize-path, jde-update-autoloaded-symbols
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-checkstyle.elc
+
+In toplevel form:
+jde-class.el:40:1:Error: Symbol's value as variable is void: jde-xemacsp
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-compat.elc
+
+In toplevel form:
+jde-compile.el:41:1:Warning: cl package required at runtime
+
+In jde-compile-finish-update-class-info:
+jde-compile.el:141:13:Warning: reference to free variable `jde-xemacsp'
+
+In jde-compile-finish-kill-buffer:
+jde-compile.el:170:44:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-compile-compiler::jde-compile-run-exec:
+jde-compile.el:829:41:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-compile-compiler::jde-compile-run-server:
+jde-compile.el:847:11:Warning: `directory-sep-char' is an obsolete variable
+    (as of Emacs 21.1); do not use it.
+jde-compile.el:901:10:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-compile-compiler::jde-compile-compile:
+jde-compile.el:927:14:Warning: reference to free variable `jde-xemacsp'
+
+In jde-compile:
+jde-compile.el:1350:19:Warning: reference to free variable `jde-xemacsp'
+jde-compile.el:1363:15:Warning: `compilation-finish-function' is an obsolete
+    variable (as of Emacs 22.1); use `compilation-finish-functions', but it
+    works a little differently.
+jde-compile.el:1363:15:Warning: `compilation-finish-function' is an obsolete
+    variable (as of Emacs 22.1); use `compilation-finish-functions', but it
+    works a little differently.
+
+In end of data:
+jde-compile.el:1381:1:Warning: the following functions are not known to be
+    defined: jde-normalize-path, jde-jeval, jde-parse-get-buffer-class,
+    jde-complete-flush-classes-in-cache, jde-get-global-classpath,
+    jde-build-classpath, jde-bsh-running-p, jde-create-prj-values-str,
+    jde-get-jdk-dir, jde-java-version, jde-get-jdk-prog
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-compile.elc
+
+In toplevel form:
+jde-complete.el:59:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+jde-complete.el:59:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+jde-complete.el:59:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+jde-complete.el:59:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+jde-complete.el:59:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+jde-complete.el:59:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+jde-complete.el:59:1:Warning: cedet-called-interactively-p called with 0
+    arguments, but requires 1
+
+In jde-complete-complete-cycle:
+jde-complete.el:694:43:Warning: reference to free variable
+    `jde-parse-current-beginning'
+jde-complete.el:693:23:Warning: reference to free variable
+    `jde-parse-current-end'
+
+In jde-complete-insert-completion:
+jde-complete.el:704:24:Warning: reference to free variable
+    `jde-parse-current-beginning'
+jde-complete.el:705:24:Warning: reference to free variable
+    `jde-parse-current-end'
+
+In jde-complete-find-completion-for-pair:
+jde-complete.el:744:29:Warning: reference to free variable
+    `jde-parse-primitive-types'
+
+In jde-complete-in-line:
+jde-complete.el:785:17:Warning: reference to free variable
+    `jde-parse-current-beginning'
+jde-complete.el:786:17:Warning: reference to free variable
+    `jde-parse-current-end'
+
+In jde-cursor-posn-as-event:
+jde-complete.el:829:7:Warning: reference to free variable `jde-xemacsp'
+
+In end of data:
+jde-complete.el:1004:1:Warning: the following functions are not known to be
+    defined: jde-parse-import-list, jde-parse-get-package-name,
+    jde-parse-get-class-at-point, jde-jeval-r, jde-parse-get-unqualified-name,
+    jde-parse-eval-type-of, make-event, jde-parse-java-variable-at-point
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-complete.elc
+
+In end of data:
+jde-custom.el:163:1:Warning: the following functions are not known to be
+    defined: custom-variable-set, custom-variable-reset-standard,
+    custom-toggle-hide, custom-variable-state-set, custom-redraw-magic,
+    custom-unlispify-tag-name, custom-menu-filter, custom-variable-prompt
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-custom.elc
+
+In toplevel form:
+jde-db.el:34:1:Error: Symbol's function definition is void: jde-require
+
+In toplevel form:
+jde-dbo.el:42:1:Error: Symbol's function definition is void: jde-require
+
+In toplevel form:
+jde-dbs.el:41:1:Error: Symbol's function definition is void: jde-require
+
+In toplevel form:
+jde-ejb.el:35:1:Error: Symbol's function definition is void: jde-require
+
+In jde-gen-final-argument-modifier:
+jde-gen.el:191:10:Warning: `mapcar' called for effect; use `mapc' or `dolist'
+    instead
+
+In jde-gen-buffer:
+jde-gen.el:1447:40:Warning: reference to free variable
+    `jde-gen-buffer-template-names'
+
+In jde-gen-tostring-return:
+jde-gen.el:3032:59:Warning: reference to free variable `jde-jdk-registry'
+
+In jde-gen-code:
+jde-gen.el:3222:40:Warning: reference to free variable
+    `jde-gen-template-names'
+
+In jde-gen-abbrev-hook:
+jde-gen.el:3668:29:Warning: `delete-backward-char' used from Lisp code
+That command is designed for interactive use only
+
+In end of data:
+jde-gen.el:3939:1:Warning: the following functions are not known to be
+    defined: replace-in-string, jde-import-find-and-import,
+    jde-parse-get-class-modifiers, jde-wiz-implement-interface-internal,
+    jde-package-get-package-directory,
+    jde-package-convert-directory-to-package, jde-gen-class,
+    jde-gen-interface, jde-gen-console,
+    jde-parse-get-innermost-class-at-point, jde-parse-get-nth-member,
+    jde-parse-get-top-of-class, jde-gen-get-set, jde-gen-bean,
+    jde-gen-jfc-app, jde-gen-makefile, jde-gen-ant-buildfile,
+    jde-wiz-get-name, jde-gen-inner-class-internal,
+    jde-parse-get-serializable-members, jde-parse-get-member-variables,
+    jde-gen-equals-method, jde-gen-hashcode-method, jde-gen-tostring-method,
+    jde-gen-exception, jde-parse-comment-or-quoted-p, jde-mode
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-gen.elc
+
+In toplevel form:
+jde-help.el:28:1:Error: Symbol's function definition is void: jde-require
+
+In toplevel form:
+jde-imenu.el:44:21:Warning: value returned from (char-to-string object) is
+    unused
+
+In end of data:
+jde-imenu.el:440:1:Warning: the function
+    `semantic-format-prototype-tag-java-mode' is not known to be defined.
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-imenu.elc
+
+In jde-import-find-and-import:
+jde-import.el:340:59:Warning: Function `remove-duplicates' from cl package
+    called at runtime
+
+In jde-import-insert-imports-into-buffer:
+jde-import.el:406:14:Warning: reference to free variable `jde-xemacsp'
+
+In jde-import-already-imports-class:
+jde-import.el:435:33:Warning: Function `find' from cl package called at
+    runtime
+
+In jde-import-strip-existing-imports:
+jde-import.el:441:5:Warning: mapcar called with 1 argument, but requires 2
+
+In end of data:
+jde-import.el:1108:1:Warning: the following functions are not known to be
+    defined: jde-require, jde-parse-get-package-name,
+    jde-parse-get-package-from-name, jde-jeval-r, jde-read-class,
+    jde-parse-class-exists, jde-parse-get-unqualified-name, jde-choose-class
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-import.elc
+
+In end of data:
+jde-java-font-lock.el:1156:1:Warning: the following functions are not known to
+    be defined: jde-java-font-lock-def-html-keyword,
+    jde-java-font-lock-remove-javadoc-keywords
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-java-font-lock.elc
+
+In toplevel form:
+jde-java-grammar.el:27:1:Error: Symbol's function definition is void: jde-require
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-java-properties.elc
+
+In jde-javadoc-maker::get-args:
+jde-javadoc-gen.el:288:17:Warning: Function `mapcan' from cl package called at
+    runtime
+jde-javadoc-gen.el:297:57:Warning: Function `mapcan' from cl package called at
+    runtime
+jde-javadoc-gen.el:307:51:Warning: Function `mapcan' from cl package called at
+    runtime
+
+In end of data:
+jde-javadoc-gen.el:629:1:Warning: the following functions are not known to be
+    defined: jde-normalize-path, jde-cygpath, jde-get-jdk-dir,
+    jde-build-classpath, jde-get-global-classpath, jde-help-get-jdk-doc-url
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-javadoc-gen.elc
+jde-java-font-lock: building names cache...
+jde-java-font-lock: building names cache...empty
+
+In jde-javadoc-checker-show-report:
+jde-javadoc.el:715:10:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-javadoc.elc
+
+In jde-jdb-breakpoint-listener::jde-jdb-set-breakpoint-listener:
+jde-jdb.el:721:29:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+
+In jde-db-jdb::jde-db-jdb-start:
+jde-jdb.el:962:54:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-jdb-string-to-int:
+jde-jdb.el:1867:4:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-jdb.elc
+
+In jde-juci-escape-string:
+jde-juci.el:269:15:Warning: `string-to-sequence' is an obsolete function (as
+    of Emacs 22.1); use `string-to-list' or `string-to-vector'.
+
+In end of data:
+jde-juci.el:338:1:Warning: the following functions might not be defined at
+    runtime: jde-jeval, jde-mode
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-juci.elc
+
+In toplevel form:
+jde-junit.el:430:9:Warning: assignment to free variable `test-jde-junit'
+jde-junit.el:451:18:Warning: reference to free variable `test-jde-dbs-proc'
+
+In end of data:
+jde-junit.el:456:1:Warning: the function `jde-run-set-app-args' might not be
+    defined at runtime.
+jde-junit.el:456:1:Warning: the following functions are not known to be
+    defined: jde-junit-test-class-internal, jde-junit4-test-class-internal,
+    jde-junit-add-test-to-suite-internal
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-junit.elc
+
+In jde-make-find-build-file:
+jde-make.el:94:50:Warning: Function `find' from cl package called at runtime
+
+In jde-make:
+jde-make.el:157:15:Warning: `compilation-finish-function' is an obsolete
+    variable (as of Emacs 22.1); use `compilation-finish-functions', but it
+    works a little differently.
+jde-make.el:157:15:Warning: `compilation-finish-function' is an obsolete
+    variable (as of Emacs 22.1); use `compilation-finish-functions', but it
+    works a little differently.
+jde-make.el:160:6:Warning: `compile-internal' is an obsolete function (as of
+    Emacs 22.1); use `compilation-start' instead.
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-make.elc
+
+In jde-find-class-source-file:
+jde-open-source.el:348:49:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+jde-open-source.el:519:1:Warning: the following functions might not be defined
+    at runtime: jde-find-class-source, jde-mode, jde-parse-get-buffer-class,
+    jde-read-class
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-open-source.elc
+
+In jde-package-get-directories-in-classpath:
+jde-package.el:152:5:Warning: Function `mapcan' from cl package called at
+    runtime
+
+In jde-package-seach-package-directories:
+jde-package.el:171:15:Warning: Function `mapcan' from cl package called at
+    runtime
+
+In jde-package-generate-package-statement:
+jde-package.el:205:11:Warning: `directory-sep-char' is an obsolete variable
+    (as of Emacs 21.1); do not use it.
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-package.elc
+
+In do-and-advance-chars:
+jde-parse-class.el:70:22:Warning: Function `gensym' from cl package called at
+    runtime
+
+In jde-parse-class-extract-method-calls:
+jde-parse-class.el:174:32:Warning: Function `mapcan' from cl package called at
+    runtime
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-parse-class.elc
+
+In jde-split-by-camel-notation:
+jde-parse-expr.el:94:17:Warning: Function `subseq' from cl package called at
+    runtime
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-parse-expr.elc
+
+In jde-parse-get-nth-member:
+jde-parse.el:307:62:Warning: Function `subsetp' from cl package called at
+    runtime
+
+In jde-parse-get-package-from-name:
+jde-parse.el:450:50:Warning: Function `position' from cl package called at
+    runtime
+
+In jde-parse-find-declaration-of:
+jde-parse.el:821:15:Warning: Function `count' from cl package called at
+    runtime
+jde-parse.el:832:57:Warning: Function `count' from cl package called at
+    runtime
+jde-parse.el:833:22:Warning: Function `count' from cl package called at
+    runtime
+jde-parse.el:833:22:Warning: Function `count' from cl package called at
+    runtime
+
+In jde-parse-class-name:
+jde-parse.el:1725:62:Warning: Function `position' from cl package called at
+    runtime
+
+In end of data:
+jde-parse.el:1746:1:Warning: the following functions might not be defined at
+    runtime: jde-require, jde-parse-buffer-contains-multiple-classes-p,
+    jde-jeval
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-parse.elc
+
+In jde-plugin-make-menu-spec:
+jde-plugins.el:158:28:Warning: Function `mapcan' from cl package called at
+    runtime
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-plugins.elc
+
+In jde-find-project-file:
+jde-project-file.el:90:11:Warning: `directory-sep-char' is an obsolete
+    variable (as of Emacs 21.1); do not use it.
+jde-project-file.el:92:51:Warning: Function `find' from cl package called at
+    runtime
+
+In jde-find-project-files:
+jde-project-file.el:105:11:Warning: `directory-sep-char' is an obsolete
+    variable (as of Emacs 21.1); do not use it.
+
+In jde-load-all-project-files:
+jde-project-file.el:158:13:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-save-delete:
+jde-project-file.el:177:32:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-save-open-buffer:
+jde-project-file.el:253:11:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-save-close-buffer:
+jde-project-file.el:279:10:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-save-project:
+jde-project-file.el:385:11:Warning: `directory-sep-char' is an obsolete
+    variable (as of Emacs 21.1); do not use it.
+
+In jde-create-new-project:
+jde-project-file.el:406:11:Warning: `directory-sep-char' is an obsolete
+    variable (as of Emacs 21.1); do not use it.
+jde-project-file.el:416:12:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-project-file.elc
+
+In jde-project-application::jde-project-create:
+jde-project.el:168:29:Warning: assignment to free variable `dir'
+jde-project.el:171:11:Warning: reference to free variable `dir'
+
+In jde-describe-path:
+jde-project.el:217:21:Warning: `save-excursion' defeated by `set-buffer'
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-project.elc
+
+In end of data:
+jde-refactor.el:70:1:Warning: the function `jde-read-class' might not be
+    defined at runtime.
+jde-refactor.el:70:1:Warning: the function `dired-rename-file' is not known to
+    be defined.
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-refactor.elc
+
+In jde-run-vm::jde-run-vm-launch:
+jde-run.el:752:21:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-run-get-vm:
+jde-run.el:1157:12:Warning: Function `find-if' from cl package called at
+    runtime
+
+In jde-run-executable:
+jde-run.el:1291:21:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-run-applet-exec:
+jde-run.el:1336:59:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-run-applet-internal:
+jde-run.el:1406:21:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-run-find-html-files:
+jde-run.el:1433:38:Warning: Function `mapcan' from cl package called at
+    runtime
+
+In jde-run-etrace-current-marker:
+jde-run.el:1522:34:Warning: `save-excursion' defeated by `set-buffer'
+jde-run.el:1558:41:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+
+In jde-run-etrace-goto:
+jde-run.el:1569:6:Warning: compilation-goto-locus called with 1 argument, but
+    requires 3
+
+In jde-run-etrace-show-at-mouse:
+jde-run.el:1577:32:Warning: reference to free variable `pos'
+
+In end of data:
+jde-run.el:1641:1:Warning: the following functions might not be defined at
+    runtime: jde-run-executable, jde-run-applet, jde-run-etrace-current-marker
+jde-run.el:1641:1:Warning: the following functions are not known to be
+    defined: event-point, event-window
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-run.elc
+
+In sregex--char-aux:
+jde-sregex.el:577:29:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-sregex.elc
+
+In end of data:
+jde-stat.el:241:1:Warning: the function `jde-stat-loc-report' might not be
+    defined at runtime.
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-stat.elc
+
+In tree-widget-example-1:
+jde-tree-widget.el:463:6:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+jde-tree-widget.el:463:54:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+
+In tree-widget-example-2:
+jde-tree-widget.el:509:6:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+jde-tree-widget.el:509:54:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+
+In end of data:
+jde-tree-widget.el:539:1:Warning: the function
+    `tree-widget-sample-overlay-lists' is not known to be defined.
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-tree-widget.elc
+
+In jde-root:
+jde-util.el:124:10:Warning: `directory-sep-char' is an obsolete variable (as
+    of Emacs 21.1); do not use it.
+
+In jde-find-jde-data-directory:
+jde-util.el:137:10:Warning: `directory-sep-char' is an obsolete variable (as
+    of Emacs 21.1); do not use it.
+
+In jde-exception-goto:
+jde-util.el:208:23:Warning: `string-to-int' is an obsolete function (as of
+    Emacs 22.1); use `string-to-number' instead.
+jde-util.el:212:6:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+
+In end of data:
+jde-util.el:270:1:Warning: the following functions are not known to be
+    defined: temp-directory, htmlize-buffer
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-util.elc
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-which-method.elc
+
+In test-tree:
+jde-widgets.el:137:44:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+jde-widgets.el:137:72:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+
+In test-obj:
+jde-widgets.el:440:44:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+jde-widgets.el:440:72:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+
+In test-option-tree:
+jde-widgets.el:538:6:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+jde-widgets.el:538:34:Warning: `mapcar' called for effect; use `mapc' or
+    `dolist' instead
+
+In end of data:
+jde-widgets.el:575:1:Warning: the function `jde-require' might not be defined
+    at runtime.
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-widgets.elc
+
+In end of data:
+jde-wiz.el:1235:1:Warning: the following functions might not be defined at
+    runtime: jde-jeval, jde-gen-listener-registry
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-wiz.elc
+
+In jde-xref-guess-prefixes:
+jde-xref.el:181:87:Warning: value returned from (file-directory-p (concat
+    base-path "/" package-path "/" dir)) is unused
+jde-xref.el:181:87:Warning: value returned from (file-directory-p (concat
+    base-path "/" package-path "/" dir)) is unused
+jde-xref.el:187:50:Warning: Function `remove-if-not' from cl package called at
+    runtime
+jde-xref.el:193:75:Warning: Function `remove-if-not' from cl package called at
+    runtime
+
+In jde-xref-substring-member:
+jde-xref.el:222:37:Warning: Function `member-if' from cl package called at
+    runtime
+
+In jde-xref-update-xref-db:
+jde-xref.el:258:44:Warning: Function `remove-if' from cl package called at
+    runtime
+
+In jde-xref-goto-caller:
+jde-xref.el:431:31:Warning: `goto-line' used from Lisp code
+That command is designed for interactive use only
+
+In jde-xref-get-class-variables:
+jde-xref.el:635:48:Warning: Function `mapcan' from cl package called at
+    runtime
+
+In jde-xref-list-uncalled-functions:
+jde-xref.el:671:64:Warning: Function `mapcan' from cl package called at
+    runtime
+jde-xref.el:669:30:Warning: Function `mapcan' from cl package called at
+    runtime
+jde-xref.el:669:30:Warning: Function `mapcan' from cl package called at
+    runtime
+
+In jde-xref-remove-classes-from-subclasses-table:
+jde-xref.el:698:59:Warning: Function `remove-if' from cl package called at
+    runtime
+
+In end of data:
+jde-xref.el:744:1:Warning: the function `jde-find-class-source' might not be
+    defined at runtime.
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde-xref.elc
+
+In toplevel form:
+jde.el:75:1:Warning: cl package required at runtime
+
+In jde-java-version-via-java:
+jde.el:407:23:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-init-abbrev-table:
+jde.el:739:21:Warning: `delete-backward-char' used from Lisp code
+That command is designed for interactive use only
+
+In jde-mode:
+jde.el:879:10:Warning: `make-local-hook' is an obsolete function (as of Emacs
+    21.1); not necessary any more.
+
+In jde-log-msg:
+jde.el:1020:7:Warning: `save-excursion' defeated by `set-buffer'
+
+In jde-normalize-path:
+jde.el:1420:11:Warning: `directory-sep-char' is an obsolete variable (as of
+    Emacs 21.1); do not use it.
+
+In jde-get-global-classpath:
+jde.el:1645:21:Warning: `directory-sep-char' is an obsolete variable (as of
+    Emacs 21.1); do not use it.
+
+In jde-describe-map:
+jde.el:1927:17:Warning: `print-help-return-message' is an obsolete function
+    (as of Emacs 23.2); use `help-print-return-message' instead.
+
+In jde-create-prj-values-str:
+jde.el:2311:11:Warning: `directory-sep-char' is an obsolete variable (as of
+    Emacs 21.1); do not use it.
+
+In jde-autoload-update:
+jde.el:2330:55:Warning: `save-excursion' defeated by `set-buffer'
+
+In end of data:
+jde.el:2382:1:Warning: the following functions might not be defined at
+    runtime: jde-bug-minor-mode, jde-jdb-minor-mode, jde-plugin-minor-mode
+jde.el:2382:1:Warning: the following functions are not known to be defined:
+    ange-ftp-get-file-entry, jde-dbs-self-test
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/jde.elc
+
+In regress-define-grader-function:
+regress.el:759:22:Warning: Function `gensym' from cl package called at runtime
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/regress.elc
+
+In which-find-executable:
+which.el:48:6:Warning: `mapcar' called for effect; use `mapc' or `dolist'
+    instead
+
+In which-find-all-executables:
+which.el:63:6:Warning: `mapcar' called for effect; use `mapc' or `dolist'
+    instead
+Wrote /Users/wgrose/.emacs.d/site-lisp/jde/lisp/which.elc
