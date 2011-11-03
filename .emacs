@@ -57,7 +57,6 @@
 
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/jde/lisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/cedet"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/elib"))
 
 (load-file "~/.emacs.d/site-lisp/cedet/common/cedet.el")
