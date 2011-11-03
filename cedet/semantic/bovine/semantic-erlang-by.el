@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2002, 2003 Vladimir G. Sekissov
 
-;; Author: William Grose <wgrose@snowbeard-2.local>
-;; Created: 2011-09-18 18:32:36-0400
+;; Author: Will Grose <wfpg@li240-209.members.linode.com>
+;; Created: 2011-11-03 10:45:20-0400
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

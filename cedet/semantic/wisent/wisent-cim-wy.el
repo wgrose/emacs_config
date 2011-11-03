@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2002 David Ponce
 
-;; Author: William Grose <wgrose@snowbeard-2.local>
-;; Created: 2011-09-18 18:31:54-0400
+;; Author: Will Grose <wfpg@li240-209.members.linode.com>
+;; Created: 2011-11-03 10:45:08-0400
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 
