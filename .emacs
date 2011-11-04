@@ -191,8 +191,10 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
  '(rails-ws:default-server-type "mongrel")
  '(safe-local-variable-values (quote ((mmm-global-classes))))
+ '(visible-bell nil)
  '(w32shell-cygwin-bin "C:\\tools\\cygwin\\bin"))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
