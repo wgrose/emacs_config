@@ -57,10 +57,11 @@
 
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/jde/lisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/cedet"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/elib"))
 
-;; Need cedet-split-string for seamntic-c.
+(load-file "~/.emacs.d/site-lisp/cedet/common/cedet.el")
+
+;; Need cedet-split-string for semantic-c.
 (require 'cedet-compat)
 
 ;;semantic stuff
@@ -312,15 +313,23 @@
 (define-key-after (lookup-key global-map [menu-bar tools])
   [speedbar] '("Speedbar" . speedbar-frame-mode) [calendar])
 
+;; Add exit confirmation.
+(setq confirm-kill-emacs 'yes-or-no-p)
 
+;; Follow symlinks to the real file, w/o prompting us.
+(setq vc-follow-symlinks t)
 
-;;(provide 'startup)
+;; Add zip to emacs compress/uncompress exts.
+(eval-after-load "dired-aux"
+  '(add-to-list 'dired-compress-file-suffixes
+                '("\\.zip\\'" ".zip" "unzip")))
 
+;; Needed to set this in order to bytecompile js2.el
+(setq warning-suppress-types nil)
 
 (put 'upcase-region 'disabled nil)
 
 (put 'downcase-region 'disabled nil)
-
 
 (autoload 'ispell-word "ispell"
 "Check the spelling of word in buffer." t)

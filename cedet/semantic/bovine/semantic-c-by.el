@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010 Eric M. Ludlam
 
-;; Author: William Grose <wgrose@snowbeard-2.local>
-;; Created: 2011-09-18 18:32:33-0400
+;; Author: Will Grose <wfpg@li240-209.members.linode.com>
+;; Created: 2011-11-03 10:45:19-0400
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 
