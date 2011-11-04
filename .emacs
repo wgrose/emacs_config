@@ -322,6 +322,8 @@
   '(add-to-list 'dired-compress-file-suffixes
                 '("\\.zip\\'" ".zip" "unzip")))
 
+;; Needed to set this in order to bytecompile js2.el
+(setq warning-suppress-types nil)
 
 (put 'upcase-region 'disabled nil)
 
