@@ -12,7 +12,7 @@
 (let ((default-directory "~/.emacs.d/site-lisp/modules/cedet/lisp"))
   (normal-top-level-add-subdirs-to-load-path))
 (add-to-list 'load-path "~/.emacs.d/site-lisp/modules/jdee/build/lisp")
-
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/elib"))
 
 
 (when (equal system-type 'darwin)
@@ -60,13 +60,11 @@
 (require 'mmm-auto)
 (require 'lorem-ipsum)
 (require 'cc-mode)
+(require 'color-theme)
+(require 'color-theme-solarized)
 
-
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/jde/lisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/elib"))
 
 (require 'cedet)
-
 ;; Need cedet-split-string for semantic-c.
 (require 'cedet-compat)
 
@@ -93,8 +91,7 @@
 
 ;;general jazz
 ;;color theme
-(require 'color-theme-solarized)
-(color-theme-solarized-dark)
+(color-theme-gnome2)
 
 ;; Put autosave files (ie #foo#) in one place, *not*
 ;; scattered all over the file system!
