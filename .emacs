@@ -4,9 +4,16 @@
 ;; make sure all the directory points to the
 ;; right place
 ;;
-;; (add-to-list 'load-path "~/site-lisp")
-;; (require 'startup)
+
+
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
+(let ((default-directory "~/.emacs.d/site-lisp/modules/"))
+  (normal-top-level-add-subdirs-to-load-path))
+(let ((default-directory "~/.emacs.d/site-lisp/modules/cedet/lisp"))
+  (normal-top-level-add-subdirs-to-load-path))
+(add-to-list 'load-path "~/.emacs.d/site-lisp/modules/jdee/build/lisp")
+
+
 
 (when (equal system-type 'darwin)
   (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
@@ -47,7 +54,6 @@
   )
 
 
-(require 'color-theme)
 (require 'magit)
 (require 'paren-glint)
 (require 'mmm-mode)
@@ -59,7 +65,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/jde/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/elib"))
 
-(load-file "~/.emacs.d/site-lisp/cedet/common/cedet.el")
+(require 'cedet)
 
 ;; Need cedet-split-string for semantic-c.
 (require 'cedet-compat)
@@ -87,9 +93,8 @@
 
 ;;general jazz
 ;;color theme
-(if window-system
-    (color-theme-subtle-hacker)
-  (color-theme-taylor))
+(require 'color-theme-solarized)
+(color-theme-solarized-dark)
 
 ;; Put autosave files (ie #foo#) in one place, *not*
 ;; scattered all over the file system!

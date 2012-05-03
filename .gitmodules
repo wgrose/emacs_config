@@ -1,0 +1,51 @@
+[submodule "modules/auto-complete"]
+	path = modules/auto-complete
+	url = https://github.com/m2ym/auto-complete.git
+[submodule "modules/emacs-color-theme-solarized"]
+	path = modules/emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "modules/flymake-python"]
+	path = modules/flymake-python
+	url = https://github.com/huseyinyilmaz/flymake-python.git
+[submodule "modules/js2-mode"]
+	path = modules/js2-mode
+	url = https://github.com/mooz/js2-mode.git
+[submodule "modules/yasnippet"]
+	path = modules/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "modules/nxhtml"]
+	path = modules/nxhtml
+	url = https://github.com/emacsmirror/nxhtml.git
+[submodule "modules/slime"]
+	path = modules/slime
+	url = https://github.com/emacsmirror/slime.git
+[submodule "modules/cedet"]
+	path = modules/cedet
+	url = https://github.com/emacsmirror/cedet.git
+[submodule "modules/python-mode"]
+	path = modules/python-mode
+	url = https://github.com/emacsmirror/python-mode.git
+[submodule "modules/jdee"]
+	path = modules/jdee
+	url = https://github.com/emacsmirror/jdee.git
+[submodule "modules/paren-glint"]
+	path = modules/paren-glint
+	url = https://github.com/emacsmirror/paren-glint.git
+[submodule "modules/mmm-mode"]
+	path = modules/mmm-mode
+	url = https://github.com/purcell/mmm-mode.git
+[submodule "modules/pep8"]
+	path = modules/pep8
+	url = https://github.com/jcrocholl/pep8.git
+[submodule "modules/pyflakes"]
+	path = modules/pyflakes
+	url = https://github.com/wgrose/pyflakes.git
+[submodule "modules/magit"]
+	path = modules/magit
+	url = https://github.com/magit/magit.git
+[submodule "modules/lorem-ipsum"]
+	path = modules/lorem-ipsum
+	url = https://github.com/emacsmirror/lorem-ipsum.git
+[submodule "modules/elib"]
+	path = modules/elib
+	url = https://github.com/emacsattic/elib.git
