@@ -1,9 +1,6 @@
 [submodule "modules/auto-complete"]
 	path = modules/auto-complete
 	url = https://github.com/m2ym/auto-complete.git
-[submodule "modules/emacs-color-theme-solarized"]
-	path = modules/emacs-color-theme-solarized
-	url = https://github.com/sellout/emacs-color-theme-solarized.git
 [submodule "modules/flymake-python"]
 	path = modules/flymake-python
 	url = https://github.com/huseyinyilmaz/flymake-python.git
