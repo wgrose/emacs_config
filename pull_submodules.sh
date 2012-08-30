@@ -1,2 +1,2 @@
 #!/bin/sh
-git submodule update --recursive --init
+git submodule update --init
