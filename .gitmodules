@@ -16,9 +16,6 @@
 [submodule "modules/slime"]
 	path = modules/slime
 	url = https://github.com/emacsmirror/slime.git
-[submodule "modules/cedet"]
-	path = modules/cedet
-	url = https://github.com/emacsmirror/cedet.git
 [submodule "modules/python-mode"]
 	path = modules/python-mode
 	url = https://github.com/emacsmirror/python-mode.git
