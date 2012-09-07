@@ -1,6 +1,9 @@
 [submodule "modules/auto-complete"]
 	path = modules/auto-complete
 	url = https://github.com/emacsmirror/auto-complete.git
+[submodule "modules/cedet"]
+	path = modules/cedet
+	url = https://github.com/emacsmirror/cedet.git
 [submodule "modules/flymake-python"]
 	path = modules/flymake-python
 	url = https://github.com/huseyinyilmaz/flymake-python.git
