@@ -9,8 +9,6 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 (let ((default-directory "~/.emacs.d/site-lisp/modules/"))
   (normal-top-level-add-subdirs-to-load-path))
-(let ((default-directory "~/.emacs.d/site-lisp/modules/cedet/lisp"))
-  (normal-top-level-add-subdirs-to-load-path))
 (add-to-list 'load-path "~/.emacs.d/site-lisp/modules/jdee/build/lisp")
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/elib"))
 
@@ -69,10 +67,10 @@
 (require 'cedet-compat)
 
 ;;semantic stuff
-(require 'semantic-c)
-(require 'semantic-el)
-(require 'semantic-make)
-(require 'semantic-imenu)
+;;(require 'semantic-c)
+;;(require 'semantic-el)
+;;(require 'semantic-make)
+;;(require 'semantic-imenu)
 
 (add-hook 'speedbar-load-hook (lambda () (require 'semantic-sb)))
 (autoload 'semantic-bnf-mode "semantic-bnf" "Mode for Boine Normal Form. " t )
@@ -87,7 +85,7 @@
 
 ;;end of speedbar
 
-(require 'jde)
+;;(require 'jde)
 
 ;;general jazz
 ;;color theme
