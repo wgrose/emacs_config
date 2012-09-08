@@ -10,8 +10,7 @@
 (let ((default-directory "~/.emacs.d/site-lisp/modules/"))
   (normal-top-level-add-subdirs-to-load-path))
 (add-to-list 'load-path "~/.emacs.d/site-lisp/modules/jdee/build/lisp")
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/elib"))
-
+(load-file "~/.emacs.d/site-lisp/modules/color-theme-6.6.0/color-theme.elc")
 
 (when (equal system-type 'darwin)
   (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
@@ -89,7 +88,7 @@
 
 ;;general jazz
 ;;color theme
-(color-theme-gnome2)
+(color-theme-solarized-dark)
 
 ;; Put autosave files (ie #foo#) in one place, *not*
 ;; scattered all over the file system!
