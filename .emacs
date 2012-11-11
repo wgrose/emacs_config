@@ -9,8 +9,9 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 (let ((default-directory "~/.emacs.d/site-lisp/modules/"))
   (normal-top-level-add-subdirs-to-load-path))
+(add-to-list 'custom-theme-load-path
+	     "~/.emacs.d/site-lisp/modules/emacs-color-theme-solarized")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/modules/jdee/build/lisp")
-(load-file "~/.emacs.d/site-lisp/modules/color-theme-6.6.0/color-theme.elc")
 
 (when (equal system-type 'darwin)
   (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
@@ -57,9 +58,6 @@
 (require 'mmm-auto)
 (require 'lorem-ipsum)
 (require 'cc-mode)
-(require 'color-theme)
-(require 'color-theme-solarized)
-
 
 (require 'cedet)
 ;; Need cedet-split-string for semantic-c.
@@ -88,7 +86,7 @@
 
 ;;general jazz
 ;;color theme
-(color-theme-solarized-dark)
+(load-theme 'solarized-dark t)
 
 ;; Put autosave files (ie #foo#) in one place, *not*
 ;; scattered all over the file system!
@@ -181,7 +179,9 @@
 (global-set-key [f8] 'mmm-parse-buffer)
 (if (boundp 'scroll-bar-mode)
     (scroll-bar-mode nil))
-(tool-bar-mode 0)
+(when (display-graphic-p)
+    (tool-bar-mode -1)
+ )
 (menu-bar-mode 1)
 (setq inhibit-startup-message t)
 (display-time)
@@ -317,6 +317,7 @@
 
 ;; Follow symlinks to the real file, w/o prompting us.
 (setq vc-follow-symlinks t)
+
 
 ;; Add zip to emacs compress/uncompress exts.
 (eval-after-load "dired-aux"
