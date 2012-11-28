@@ -61,7 +61,7 @@
 
 (require 'cedet)
 ;; Need cedet-split-string for semantic-c.
-(require 'cedet-compat)
+;;(require 'cedet-compat)
 
 ;;semantic stuff
 ;;(require 'semantic-c)
