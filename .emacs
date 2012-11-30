@@ -60,14 +60,9 @@
 (require 'cc-mode)
 
 (require 'cedet)
-;; Need cedet-split-string for semantic-c.
-;;(require 'cedet-compat)
 
-;;semantic stuff
-;;(require 'semantic-c)
-;;(require 'semantic-el)
-;;(require 'semantic-make)
-;;(require 'semantic-imenu)
+;; Optionally load google elisp files.
+(require 'google nil 'noerror)
 
 (add-hook 'speedbar-load-hook (lambda () (require 'semantic-sb)))
 (autoload 'semantic-bnf-mode "semantic-bnf" "Mode for Boine Normal Form. " t )
@@ -358,5 +353,3 @@
 (setq ispell-enable-tex-parser t)
 (setq mac-command-key-is-meta t)
 (server-start)
-
-
