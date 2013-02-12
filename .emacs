@@ -43,14 +43,17 @@
 
 
 (if running-on-windows
-    (custom-set-variables
-     ;; custom-set-variables was added by Custom.
-     ;; If you edit it by hand, you could mess it up, so be careful.
-     ;; Your init file should contain only one such instance.
-     ;; If there is more than one, they won't work right.
-     '(w32shell-cygwin-bin "C:\\tools\\cygwin\\bin"))
+    (progn
+      (setenv "TEMP" "c:/temp")
+      (setenv "TMP" "c:/temp")
+      (custom-set-variables
+       ;; custom-set-variables was added by Custom.
+       ;; If you edit it by hand, you could mess it up, so be careful.
+       ;; Your init file should contain only one such instance.
+       ;; If there is more than one, they won't work right.
+       '(w32shell-cygwin-bin "C:\\tools\\cygwin\\bin"))
+      )
   )
-
 
 (require 'magit)
 (require 'paren-glint)
@@ -82,6 +85,12 @@
 ;;general jazz
 ;;color theme
 (load-theme 'solarized-dark t)
+(defun wg/set-color-theme (frame)
+  (select-frame frame)
+  (load-theme 'solarized-dark))
+(add-hook 'after-make-frame-functions 'wg/set-color-theme)
+(add-hook 'focus-frame-hook 'wg/set-color-theme)
+(add-hook 'new-frame-hook 'wg/set-color-theme)
 
 ;; Put autosave files (ie #foo#) in one place, *not*
 ;; scattered all over the file system!
@@ -177,25 +186,26 @@
 (when (display-graphic-p)
     (tool-bar-mode -1)
  )
-(menu-bar-mode 1)
+(menu-bar-mode -1)
 (setq inhibit-startup-message t)
 (display-time)
 (put 'narrow-to-region 'disabled nil)
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(column-number-mode t)
+ '(custom-safe-themes (quote ("1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
  '(rails-ws:default-server-type "mongrel")
  '(safe-local-variable-values (quote ((mmm-global-classes))))
  '(visible-bell nil)
  '(w32shell-cygwin-bin "C:\\tools\\cygwin\\bin"))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 
@@ -226,24 +236,24 @@
 ;;(set-face-background 'mmm-default-submode-face nil);;Gets rid of background
 
 ;;js jazz
-(autoload 'js2-mode "js2" nil t)
+(autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;;python jazz
-(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
-(setq interpreter-mode-alist (cons '("python" . python-mode)
-                                   interpreter-mode-alist))
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+;;(require 'django-html-mode)
+
 ;; Python Hook to set indentation.
 (add-hook 'python-mode-hook
           (function (lambda ()
                       (setq indent-tabs-mode nil
                             tab-width 2))))
-(autoload 'python-mode "python-mode" "Python editing mode." t)
+
 
 (global-font-lock-mode t)
 (setq font-lock-maximum-decoration t)
-
-(load "elisp-config" t)
 
 
 ;;__________________________________________________________________________
@@ -266,13 +276,6 @@
 (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))
 ;; Load our actionscript-mode extensions.
 (eval-after-load "actionscript-mode" '(load "as-config"))
-
-;; python jazz
-(autoload 'python-mode "python-mode" "Python editing mode." t)
-(add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
-(eval-after-load "python-mode" '(load "python-config" t))
-;;(require 'django-html-mode)
 
 ;;csv jazz
 (add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
@@ -340,8 +343,6 @@
 (autoload 'ispell-message "ispell"
 "Check spelling of mail message or news post.")
 ;still necessary
-(setenv "TEMP" "c:/temp")
-(setenv "TMP" "c:/temp")
 ; helpful
 (setq text-mode-hook '(lambda ()
 (local-set-key "\M-\t" 'ispell-complete-word)))
@@ -352,4 +353,27 @@
 ; enable tex parser, also very helpful
 (setq ispell-enable-tex-parser t)
 (setq mac-command-key-is-meta t)
+
+(require 'package)
+(add-to-list 'package-archives
+	     '("marmalade" .
+	       "http://marmalade-repo.org/packages/"))
+
+(if (string-match "google" (getenv "HOME"))
+    (progn 
+      (add-to-list 'package-archives
+		   '("gelpa" . 
+		     "http://internal-elpa.appspot.com/packages/"))
+      (load-file "/google/src/head/depot/eng/elisp/google.el")
+      (require 'p4-google)                ;; g4-annotate, improves find-file-at-point
+      (require 'compilation-colorization) ;; colorizes output of (i)grep
+      (require 'google3)                  ;; magically set paths for compiling google3 code
+      (require 'google3-build)            ;; support for blaze builds
+      (require 'csearch)                  ;; Search the whole Google code base.
+      (grok-init)
+      ))
+
+(package-initialize)
+
+
 (server-start)
