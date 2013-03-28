@@ -13,6 +13,7 @@
 	     "~/.emacs.d/site-lisp/modules/emacs-color-theme-solarized")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/modules/jdee/build/lisp")
 
+
 (when (equal system-type 'darwin)
   (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
   (push "/opt/local/bin" exec-path))
@@ -139,6 +140,9 @@
 ;; save the desktop file automatically if it already exists
 (setq desktop-save 'if-exists)
 (desktop-save-mode 1)
+
+(require 'bash-completion)
+(bash-completion-setup)
 
 ;; save a bunch of variables to the desktop file
 ;; for lists specify the len of the maximal saved data also
