@@ -131,12 +131,10 @@
 (recentf-mode 1)
 (setq recentf-max-saved-items 500)
 (setq recentf-max-menu-items 60)
-(global-set-key [(meta f12)] 'recentf-open-files)
 (defun xsteve-ido-choose-from-recentf ()
   "Use ido to select a recently opened file from the `recentf-list'"
   (interactive)
   (find-file (ido-completing-read "Open file: " recentf-list nil t)))
-(global-set-key [(meta f11)] 'xsteve-ido-choose-from-recentf)
 ;; save a list of open files in ~/.emacs.desktop
 ;; save the desktop file automatically if it already exists
 (setq desktop-save 'if-exists)
@@ -164,12 +162,11 @@
 (setq ibuffer-always-show-last-buffer nil)
 (setq ibuffer-sorting-mode 'recency)
 (setq ibuffer-use-header-line t)
-(global-set-key [(f12)] 'ibuffer)
 
 
 (paren-glint-mode 1)
 (defun try-complete-abbrev (old)
-(if (expand-abbrev) t nil))
+  (if (expand-abbrev) t nil))
 (setq hippie-expand-try-functions-list
       '(try-complete-abbrev
         try-complete-file-name
@@ -181,6 +178,10 @@
 (global-set-key "\C-x\C-g" 'magit-status)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key [f8] 'mmm-parse-buffer)
+(global-set-key [?\C-c ?r] 'recentf-open-files)
+(global-set-key [?\C-c ?i] 'ibuffer)
+(global-set-key [?\C-c ?b] 'xsteve-ido-choose-from-recentf)
+
 (if (boundp 'scroll-bar-mode)
     (scroll-bar-mode nil))
 (when (display-graphic-p)
@@ -197,8 +198,10 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-safe-themes (quote ("1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+ '(js2-bounce-indent-p t)
  '(rails-ws:default-server-type "mongrel")
  '(safe-local-variable-values (quote ((mmm-global-classes))))
+ '(send-mail-function (quote sendmail-send-it))
  '(visible-bell nil)
  '(w32shell-cygwin-bin "C:\\tools\\cygwin\\bin"))
 (custom-set-faces
@@ -354,6 +357,29 @@
 (setq ispell-enable-tex-parser t)
 (setq mac-command-key-is-meta t)
 
+;;(defun find-grep-dired-do-search (dir regexp)
+;;  "First perform `find-grep-dired', and wait for it to finish.
+;;Then, using the same REGEXP as provided to `find-grep-dired',
+;;perform `dired-do-search' on all files in the *Find* buffer."
+;;  (interactive "DFind-grep (directory): \nsFind-grep (grep regexp): ")
+;;  (find-grep-dired dir regexp)
+;;  (while (get-buffer-process (get-buffer "*Find*"))
+;;    (sit-for 1))
+;;  (with-current-buffer "*Find*"
+;;    (dired-toggle-marks)
+;;    (dired-do-search regexp)))
+;;(define-key dired-mode-map (kbd "F") 'find-grep-dired-do-search)
+
+;; Why is this failing??
+;;(define-key dired-mode-map (kbd "F") 'find-grep-dired)
+
+;; When switch windows, make the one you're switching to 80 wide.
+(defadvice other-window (after other-window-now activate)
+  (if (< (window-width) 80)
+      (enlarge-window (- 81 (window-width)) t)
+      (shrink-window (- (window-width) 81) t)
+    ))
+
 (require 'package)
 (add-to-list 'package-archives
 	     '("marmalade" .
@@ -370,6 +396,7 @@
       (require 'google3)                  ;; magically set paths for compiling google3 code
       (require 'google3-build)            ;; support for blaze builds
       (require 'csearch)                  ;; Search the whole Google code base.
+      (require 'google-imports)           ;; Java google import magic.
       (grok-init)
       ))
 
@@ -377,3 +404,4 @@
 
 
 (server-start)
+(put 'dired-find-alternate-file 'disabled nil)
