@@ -62,6 +62,9 @@
 (require 'mmm-auto)
 (require 'lorem-ipsum)
 (require 'cc-mode)
+(require 'dired)
+
+(require 'uniquify)
 
 (require 'cedet)
 
@@ -167,24 +170,20 @@
 (setq ibuffer-sorting-mode 'recency)
 (setq ibuffer-use-header-line t)
 
+;; Hippie expand configuration.
+(load-file "~/.emacs.d/site-lisp/expand-config.el")
 
 (paren-glint-mode 1)
-(defun try-complete-abbrev (old)
-  (if (expand-abbrev) t nil))
-(setq hippie-expand-try-functions-list
-      '(try-complete-abbrev
-        try-complete-file-name
-        try-expand-dabbrev))
 (global-set-key "\C-r" 'isearch-backward-regexp)
 (global-set-key "\C-s" 'isearch-forward-regexp)
 (global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\C-x\C-j" 'goto-line)
-(global-set-key "\C-x\C-g" 'magit-status)
+(global-set-key "\C-x\C-m" 'magit-status)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key [f8] 'mmm-parse-buffer)
 (global-set-key [?\C-c ?r] 'recentf-open-files)
 (global-set-key [?\C-c ?i] 'ibuffer)
-(global-set-key [?\C-c ?b] 'xsteve-ido-choose-from-recentf)
+(global-set-key [?\C-c ?f] 'xsteve-ido-choose-from-recentf)
 
 (if (boundp 'scroll-bar-mode)
     (scroll-bar-mode nil))
@@ -200,12 +199,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(browse-url-browser-function (quote browse-url-default-browser))
  '(column-number-mode t)
  '(custom-safe-themes (quote ("1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
  '(js2-bounce-indent-p t)
  '(rails-ws:default-server-type "mongrel")
  '(safe-local-variable-values (quote ((mmm-global-classes))))
  '(send-mail-function (quote sendmail-send-it))
+ '(tool-bar-mode nil)
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(visible-bell nil)
  '(w32shell-cygwin-bin "C:\\tools\\cygwin\\bin"))
 (custom-set-faces
@@ -361,18 +363,19 @@
 (setq ispell-enable-tex-parser t)
 (setq mac-command-key-is-meta t)
 
-;;(defun find-grep-dired-do-search (dir regexp)
-;;  "First perform `find-grep-dired', and wait for it to finish.
-;;Then, using the same REGEXP as provided to `find-grep-dired',
-;;perform `dired-do-search' on all files in the *Find* buffer."
-;;  (interactive "DFind-grep (directory): \nsFind-grep (grep regexp): ")
-;;  (find-grep-dired dir regexp)
-;;  (while (get-buffer-process (get-buffer "*Find*"))
-;;    (sit-for 1))
-;;  (with-current-buffer "*Find*"
-;;    (dired-toggle-marks)
-;;    (dired-do-search regexp)))
-;;(define-key dired-mode-map (kbd "F") 'find-grep-dired-do-search)
+(defun find-grep-dired-do-search (dir regexp)
+  "First perform `find-grep-dired', and wait for it to finish.
+Then, using the same REGEXP as provided to `find-grep-dired',
+perform `dired-do-search' on all files in the *Find* buffer."
+  (interactive "DFind-grep (directory): \nsFind-grep (grep regexp): ")
+  (find-grep-dired dir regexp)
+  (while (get-buffer-process (get-buffer "*Find*"))
+    (sit-for 1))
+  (with-current-buffer "*Find*"
+    (dired-toggle-marks)
+    (dired-do-search regexp)))
+
+(define-key dired-mode-map (kbd "F") 'find-grep-dired-do-search)
 
 ;; Why is this failing??
 ;;(define-key dired-mode-map (kbd "F") 'find-grep-dired)
@@ -383,6 +386,19 @@
       (enlarge-window (- 81 (window-width)) t)
       (shrink-window (- (window-width) 81) t)
     ))
+
+(defun html-escape-region (start end)
+  (interactive "r")
+  (save-excursion
+    (save-restriction
+      (narrow-to-region start end)
+      (goto-char (point-min))
+      (replace-string "&" "&amp;")
+      (goto-char (point-min))
+      (replace-string "<" "&lt;")
+      (goto-char (point-min))
+      (replace-string ">" "&gt;")
+      )))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -401,6 +417,10 @@
       (require 'google3-build)            ;; support for blaze builds
       (require 'csearch)                  ;; Search the whole Google code base.
       (require 'google-imports)           ;; Java google import magic.
+      (require 'google3-ffap)
+      (setq ffap-alist (append (google3-ffap-alist-additions) ffap-alist))
+      (require 'ffap-java)
+      (require 'google-prodaccess)
       (grok-init)
       ))
 
