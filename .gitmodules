@@ -43,9 +43,6 @@
 [submodule "modules/elib"]
 	path = modules/elib
 	url = https://github.com/emacsattic/elib.git
-[submodule "modules/emacs-color-theme-solarized"]
-	path = modules/emacs-color-theme-solarized
-	url = https://github.com/sellout/emacs-color-theme-solarized.git
 [submodule "modules/bash-completion"]
 	path = modules/bash-completion
 	url = https://github.com/szermatt/emacs-bash-completion.git
