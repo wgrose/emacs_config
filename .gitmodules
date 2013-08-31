@@ -49,3 +49,6 @@
 [submodule "modules/emacs-color-theme-solarized"]
 	path = modules/emacs-color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "modules/git-modes"]
+	path = modules/git-modes
+	url = https://github.com/magit/git-modes.git
