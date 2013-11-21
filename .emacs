@@ -96,6 +96,10 @@
 (add-hook 'focus-frame-hook 'wg/set-color-theme)
 (add-hook 'new-frame-hook 'wg/set-color-theme)
 
+;; Go jazz
+(add-hook 'before-save-hook #'gofmt-before-save)
+
+
 ;; Put autosave files (ie #foo#) in one place, *not*
 ;; scattered all over the file system!
 (defvar autosave-dir
@@ -391,6 +395,19 @@ perform `dired-do-search' on all files in the *Find* buffer."
       (shrink-window (- (window-width) 81) t)
     ))
 
+(defun gnome-navigate-using-nautilus (filename)
+  "gnome-opens the specified file."
+  (interactive "fFile to open: ")
+  (let ((process-connection-type nil))
+    (start-process-shell-command "" nil "/usr/bin/nautilus" filename)))
+
+(defun dired-gnome-navigate-using-nautilus ()
+  "Opens the current file in a Dired buffer."
+  (interactive)
+  (gnome-navigate-using-nautilus (dired-get-file-for-visit)))
+
+(add-hook 'dired-mode-hook (lambda () (local-set-key "N" 'dired-gnome-navigate-using-nautilus)))
+
 (defun html-escape-region (start end)
   (interactive "r")
   (save-excursion
@@ -433,3 +450,4 @@ perform `dired-do-search' on all files in the *Find* buffer."
 
 (server-start)
 (put 'dired-find-alternate-file 'disabled nil)
+(put 'scroll-left 'disabled nil)
