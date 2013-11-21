@@ -39,7 +39,7 @@
 	url = https://github.com/magit/magit.git
 [submodule "modules/lorem-ipsum"]
 	path = modules/lorem-ipsum
-	url = https://github.com/emacsmirror/lorem-ipsum.git
+	url = https://github.com/emacsattic/lorem-ipsum.git
 [submodule "modules/elib"]
 	path = modules/elib
 	url = https://github.com/emacsattic/elib.git
