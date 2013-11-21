@@ -13,6 +13,7 @@
 	     "~/.emacs.d/site-lisp/modules/emacs-color-theme-solarized")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/modules/jdee/build/lisp")
 
+(setq default-directory "~")
 
 (when (equal system-type 'darwin)
   (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
@@ -97,6 +98,7 @@
 (add-hook 'new-frame-hook 'wg/set-color-theme)
 
 ;; Go jazz
+(require 'go-mode)
 (add-hook 'before-save-hook #'gofmt-before-save)
 
 

@@ -52,3 +52,6 @@
 [submodule "modules/git-modes"]
 	path = modules/git-modes
 	url = https://github.com/magit/git-modes.git
+[submodule "modules/go-mode"]
+	path = modules/go-mode
+	url = https://github.com/emacsmirror/go-mode.git
