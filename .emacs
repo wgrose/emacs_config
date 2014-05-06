@@ -183,13 +183,13 @@
 (global-set-key "\C-r" 'isearch-backward-regexp)
 (global-set-key "\C-s" 'isearch-forward-regexp)
 (global-set-key "\M-%" 'query-replace-regexp)
-(global-set-key "\C-x\C-j" 'goto-line)
 (global-set-key "\C-x\C-m" 'magit-status)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key [f8] 'mmm-parse-buffer)
 (global-set-key [?\C-c ?r] 'recentf-open-files)
 (global-set-key [?\C-c ?i] 'ibuffer)
 (global-set-key [?\C-c ?f] 'xsteve-ido-choose-from-recentf)
+
 
 (if (boundp 'scroll-bar-mode)
     (scroll-bar-mode nil))
@@ -269,6 +269,8 @@
 
 ;; tail mode for log files.
 (add-to-list 'auto-mode-alist '("\\.log" . auto-revert-tail-mode))
+(add-to-list 'auto-mode-alist '("\\.STDERR\\'" . auto-revert-tail-mode))
+(add-to-list 'auto-mode-alist '("\\.STDOUT\\'" . auto-revert-tail-mode))
 
 
 (global-font-lock-mode t)
@@ -307,6 +309,12 @@
 (setq cssm-indent-function #'cssm-c-style-indenter)
 (setq cssm-indent-level '2)
 (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil embedded-css))
+
+;; Column markers
+(require 'column-marker)
+(add-hook 'js2-mode-hook (lambda () (interactive) (column-marker-1 80)))
+(add-hook 'java-mode-hook (lambda () (interactive) (column-marker-1 100)))
+ (global-set-key [?\C-c ?m] 'column-marker-1)
 
 
 ;;ruby jazz
@@ -423,10 +431,20 @@ perform `dired-do-search' on all files in the *Find* buffer."
       (replace-string ">" "&gt;")
       )))
 
+(setq calendar-latitude 40.67)
+(setq calendar-longitude -73.94)
+(setq calendar-location-name "New York, NY")
+
 (require 'package)
 (add-to-list 'package-archives
 	     '("marmalade" .
 	       "http://marmalade-repo.org/packages/"))
+
+;;(defun google-java-save-buffer ()
+;;  (interactive)
+;;  (save-excursion
+;;    (google-imports-organize-imports)
+;;    (save-buffer)))
 
 (if (string-match "google" (getenv "HOME"))
     (progn 
@@ -440,10 +458,32 @@ perform `dired-do-search' on all files in the *Find* buffer."
       (require 'google3-build)            ;; support for blaze builds
       (require 'csearch)                  ;; Search the whole Google code base.
       (require 'google-imports)           ;; Java google import magic.
+      (require 'google-java)
+      ;; Gtags key bindings
+      (global-set-key (kbd "C-c g g") 'gtags-feeling-lucky)
+      (global-set-key (kbd "C-c g u") 'gtags-show-tag-locations-under-point)
+      (global-set-key (kbd "C-c g n") 'google-next-tag)
+      (global-set-key (kbd "C-c g p") 'google-pop-tag)
+      ;; Imports key bindings
+      (global-set-key (kbd "C-c p g") 'google-imports-grab-import)
+      (global-set-key (kbd "C-c p a") 'google-imports-add-grabbed-imports)
+      (global-set-key (kbd "C-c p o") 'google-imports-organize-imports)
+      ;; Autosave java imports
+      ;;(define-key java-mode-map (kbd "C-x C-s") 'google-java-save-buffer)
       (require 'google3-ffap)
       (setq ffap-alist (append (google3-ffap-alist-additions) ffap-alist))
       (require 'ffap-java)
       (require 'google-prodaccess)
+      (require 'google-cc-extras)
+      (require 'gcomplete)
+      (gcomplete-setup-flymake)
+      ;; auto-complete if you want it as well
+      (gcomplete-setup-for-auto-complete)
+      (require 'google-jswat)
+      (setq google-jdb-jswat-command "/google/src/files/head/depot/eng/elisp/third_party/gnuemacs/jswat/jswat-launcher")
+      (remove-hook 'jdb-mode-hook 'google-jdb-fix-comint-prompt)
+      ;;eng/elisp/third_party/gnuemacs/jswat/jswat-launcher
+      (require 'google-autogen)
       (grok-init)
       ))
 

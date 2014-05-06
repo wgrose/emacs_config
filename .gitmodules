@@ -55,3 +55,7 @@
 [submodule "modules/go-mode"]
 	path = modules/go-mode
 	url = https://github.com/emacsmirror/go-mode.git
+[submodule "modules/yasnippet-java-mode"]
+	path = modules/yasnippet-java-mode
+	url = https://github.com/nekop/yasnippet-java-mode.git
+
