@@ -59,3 +59,6 @@
 	path = modules/yasnippet-java-mode
 	url = https://github.com/nekop/yasnippet-java-mode.git
 
+[submodule "modules/cedet"]
+	path = modules/cedet
+	url = git://github.com/emacsmirror/cedet.git

@@ -11,7 +11,7 @@
   (normal-top-level-add-subdirs-to-load-path))
 (add-to-list 'custom-theme-load-path
 	     "~/.emacs.d/site-lisp/modules/emacs-color-theme-solarized")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/modules/jdee/build/lisp")
+;;(add-to-list 'load-path "~/.emacs.d/site-lisp/modules/jdee/build/lisp")
 
 (setq default-directory "~")
 
@@ -440,6 +440,29 @@ perform `dired-do-search' on all files in the *Find* buffer."
 	     '("marmalade" .
 	       "http://marmalade-repo.org/packages/"))
 
+;Yasnippet
+(require 'yasnippet)
+
+;; Java jazz
+(require 'java-snippets)
+
+;; Turn on yas mode for all buffers.
+(yas-global-mode 1)
+
+(defun track-shell-directory/procfs ()
+  (shell-dirtrack-mode 0)
+  (add-hook 'comint-preoutput-filter-functions
+	    (lambda (str)
+	      (prog1 str
+		(when (string-match comint-prompt-regexp str)
+		  (cd (file-symlink-p
+		       (format "/proc/%s/cwd" (process-id
+					       (get-buffer-process
+						(current-buffer)))))))))
+	    nil t))
+
+(add-hook 'shell-mode-hook 'track-shell-directory/procfs)
+
 ;;(defun google-java-save-buffer ()
 ;;  (interactive)
 ;;  (save-excursion
@@ -459,15 +482,6 @@ perform `dired-do-search' on all files in the *Find* buffer."
       (require 'csearch)                  ;; Search the whole Google code base.
       (require 'google-imports)           ;; Java google import magic.
       (require 'google-java)
-      ;; Gtags key bindings
-      (global-set-key (kbd "C-c g g") 'gtags-feeling-lucky)
-      (global-set-key (kbd "C-c g u") 'gtags-show-tag-locations-under-point)
-      (global-set-key (kbd "C-c g n") 'google-next-tag)
-      (global-set-key (kbd "C-c g p") 'google-pop-tag)
-      ;; Imports key bindings
-      (global-set-key (kbd "C-c p g") 'google-imports-grab-import)
-      (global-set-key (kbd "C-c p a") 'google-imports-add-grabbed-imports)
-      (global-set-key (kbd "C-c p o") 'google-imports-organize-imports)
       ;; Autosave java imports
       ;;(define-key java-mode-map (kbd "C-x C-s") 'google-java-save-buffer)
       (require 'google3-ffap)
@@ -484,6 +498,19 @@ perform `dired-do-search' on all files in the *Find* buffer."
       (remove-hook 'jdb-mode-hook 'google-jdb-fix-comint-prompt)
       ;;eng/elisp/third_party/gnuemacs/jswat/jswat-launcher
       (require 'google-autogen)
+      (require 'rotate-among-files)
+      ;; Gtags key bindings
+      (global-set-key (kbd "C-c C-g g g") 'gtags-feeling-lucky)
+      (global-set-key (kbd "C-c C-g g u") 'gtags-show-tag-locations-under-point)
+      (global-set-key (kbd "C-c C-g g n") 'google-next-tag)
+      (global-set-key (kbd "C-c C-g g p") 'google-pop-tag)
+      ;; Imports key bindings
+      (global-set-key (kbd "C-c C-g p g") 'google-imports-grab-import)
+      (global-set-key (kbd "C-c C-g p a") 'google-imports-add-grabbed-imports)
+      (global-set-key (kbd "C-c C-g p o") 'google-imports-organize-imports)
+      ;; Rotate between test/sut key bindings
+      (global-set-key (kbd "C-c C-g r") 'google-rotate-among-files)
+
       (grok-init)
       ))
 
