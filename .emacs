@@ -64,20 +64,32 @@
 (require 'lorem-ipsum)
 (require 'cc-mode)
 (require 'dired)
+(require 'filecache)
 
 (require 'uniquify)
-
-(require 'cedet)
 
 ;; Optionally load google elisp files.
 (require 'google nil 'noerror)
 
-(add-hook 'speedbar-load-hook (lambda () (require 'semantic-sb)))
-(autoload 'semantic-bnf-mode "semantic-bnf" "Mode for Boine Normal Form. " t )
-(add-to-list 'auto-mode-alist '("\\.bnf$" . semantic-bnf-mode))
+(setq load-path (remove-if (lambda (x) (string-match-p "cedet" x)) load-path))
+;; Load CEDET.
+;; See cedet/common/cedet.info for configuration details.
+;; IMPORTANT: Tou must place this *before* any CEDET component (including
+;; EIEIO) gets activated by another package (Gnus, auth-source, ...).
+(load-file "~/.emacs.d/site-lisp/modules/cedet/cedet-devel-load.el")
 
-(autoload 'semantic-minor-mode "semantic-mode" "Mode for managing semantic parsing." t ) 
-;;end of semantic code
+;; Add further minor-modes to be enabled by semantic-mode.
+;; See doc-string of `semantic-default-submodes' for other things
+;; you can use here.
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode t)
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode t)
+(add-to-list 'semantic-default-submodes 'global-cedet-m3-minor-mode t)
+
+;; Enable Semantic
+(semantic-mode 1)
+
+;; Enable EDE (Project Management) features
+(global-ede-mode 1)
 
 ;;speedbar
 (autoload 'speedbar-frame-mode "speedbar" "Popup a speedbar frame" t)
@@ -141,10 +153,6 @@
 (recentf-mode 1)
 (setq recentf-max-saved-items 500)
 (setq recentf-max-menu-items 60)
-(defun xsteve-ido-choose-from-recentf ()
-  "Use ido to select a recently opened file from the `recentf-list'"
-  (interactive)
-  (find-file (ido-completing-read "Open file: " recentf-list nil t)))
 ;; save a list of open files in ~/.emacs.desktop
 ;; save the desktop file automatically if it already exists
 (setq desktop-save 'if-exists)
@@ -169,8 +177,18 @@
                 (shell-command-history    . 50)
                 tags-file-name
                 register-alist)))
+
 (ido-mode 'buffer)
-(setq ido-enable-flex-matching t)
+(setq ido-enable-flex-matching t
+      ido-auto-merge-work-directories-length -1
+      ido-create-new-buffer 'always
+      ido-use-filename-at-point 'guess
+      ido-everywhere t
+      ido-default-buffer-method 'selected-window)
+(ido-mode 1)
+(put 'ido-exit-minibuffer 'disabled nil)
+(when (require 'ido-ubiquitous nil t)
+  (ido-ubiquitous-mode 1))
 (setq ibuffer-shrink-to-minimum-size t)
 (setq ibuffer-always-show-last-buffer nil)
 (setq ibuffer-sorting-mode 'recency)
@@ -188,7 +206,6 @@
 (global-set-key [f8] 'mmm-parse-buffer)
 (global-set-key [?\C-c ?r] 'recentf-open-files)
 (global-set-key [?\C-c ?i] 'ibuffer)
-(global-set-key [?\C-c ?f] 'xsteve-ido-choose-from-recentf)
 
 
 (if (boundp 'scroll-bar-mode)
@@ -395,6 +412,10 @@ perform `dired-do-search' on all files in the *Find* buffer."
 
 (define-key dired-mode-map (kbd "F") 'find-grep-dired-do-search)
 
+
+(defalias 'xml-mode 'sgml-mode 
+    "Use `sgml-mode' instead of nXML's `xml-mode'.")
+
 ;; Why is this failing??
 ;;(define-key dired-mode-map (kbd "F") 'find-grep-dired)
 
@@ -448,6 +469,7 @@ perform `dired-do-search' on all files in the *Find* buffer."
 
 ;; Turn on yas mode for all buffers.
 (yas-global-mode 1)
+(define-key yas-minor-mode-map [C-tab] 'yas-expand)
 
 (defun track-shell-directory/procfs ()
   (shell-dirtrack-mode 0)
@@ -462,6 +484,10 @@ perform `dired-do-search' on all files in the *Find* buffer."
 	    nil t))
 
 (add-hook 'shell-mode-hook 'track-shell-directory/procfs)
+
+(global-set-key "\C-cy" '(lambda ()
+   (interactive)
+   (popup-menu 'yank-menu)))
 
 ;;(defun google-java-save-buffer ()
 ;;  (interactive)
@@ -510,6 +536,7 @@ perform `dired-do-search' on all files in the *Find* buffer."
       (global-set-key (kbd "C-c C-g p o") 'google-imports-organize-imports)
       ;; Rotate between test/sut key bindings
       (global-set-key (kbd "C-c C-g r") 'google-rotate-among-files)
+      (global-set-key (kbd "C-c C-g l")  'google-lint)
 
       (grok-init)
       ))

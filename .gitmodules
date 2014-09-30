@@ -62,3 +62,6 @@
 [submodule "modules/cedet"]
 	path = modules/cedet
 	url = git://github.com/emacsmirror/cedet.git
+[submodule "modules/helm"]
+	path = modules/helm
+	url = https://github.com/emacs-helm/helm.git
