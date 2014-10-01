@@ -67,3 +67,6 @@
 [submodule "modules/projectile"]
 	path = modules/projectile
 	url = https://github.com/bbatsov/projectile.git
+[submodule "modules/cask"]
+	path = modules/cask
+	url = https://github.com/cask/cask.git
