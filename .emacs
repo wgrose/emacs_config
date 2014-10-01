@@ -223,7 +223,6 @@
 (global-set-key "\C-x\C-m" 'magit-status)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key [f8] 'mmm-parse-buffer)
-(global-set-key [?\C-c ?r] 'recentf-open-files)
 (global-set-key [?\C-c ?i] 'ibuffer)
 
 
