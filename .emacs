@@ -26,36 +26,12 @@
 (defvar running-on-x (eq window-system 'x))
 (defvar running-on-z (string-equal system-name "zaurus.chicago"))
 
-;; make emacs use the clipboard
-(if running-on-linux
-    (setq x-select-enable-clipboard t)
-  (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
-  ;(setq explicit-shell-file-name "/bin/bash")
-  ;(setenv "SHELL" "/bin/bash") 
-
-)
-
 (if running-on-darwin
     (progn
       (setq ns-command-modifier 'meta)
       ;; Leave old Option key modifier as useful in terminal.
       ;;(setq ns-alternate-modifier 'none)
       ))
-
-
-
-(if running-on-windows
-    (progn
-      (setenv "TEMP" "c:/temp")
-      (setenv "TMP" "c:/temp")
-      (custom-set-variables
-       ;; custom-set-variables was added by Custom.
-       ;; If you edit it by hand, you could mess it up, so be careful.
-       ;; Your init file should contain only one such instance.
-       ;; If there is more than one, they won't work right.
-       '(w32shell-cygwin-bin "C:\\tools\\cygwin\\bin"))
-      )
-  )
 
 (require 'magit)
 (require 'paren-glint)
@@ -71,43 +47,10 @@
 ;; Optionally load google elisp files.
 (require 'google nil 'noerror)
 
-(setq load-path (remove-if (lambda (x) (string-match-p "cedet" x)) load-path))
-;; Load CEDET.
-;; See cedet/common/cedet.info for configuration details.
-;; IMPORTANT: Tou must place this *before* any CEDET component (including
-;; EIEIO) gets activated by another package (Gnus, auth-source, ...).
-(load-file "~/.emacs.d/site-lisp/modules/cedet/cedet-devel-load.el")
-
-;; Add further minor-modes to be enabled by semantic-mode.
-;; See doc-string of `semantic-default-submodes' for other things
-;; you can use here.
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode t)
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode t)
-(add-to-list 'semantic-default-submodes 'global-cedet-m3-minor-mode t)
-
-;; Enable Semantic
-(semantic-mode 1)
-
-;; Enable EDE (Project Management) features
-(global-ede-mode 1)
-
-;;speedbar
-(autoload 'speedbar-frame-mode "speedbar" "Popup a speedbar frame" t)
-(autoload 'speedbar-get-focus "speedbar" "Jump to speedbar frame" t)
-
-;;end of speedbar
-
-;;(require 'jde)
-
 ;;general jazz
 ;;color theme
 (load-theme 'solarized-dark t)
-(defun wg/set-color-theme (frame)
-  (select-frame frame)
-  (load-theme 'solarized-dark))
-(add-hook 'after-make-frame-functions 'wg/set-color-theme)
-(add-hook 'focus-frame-hook 'wg/set-color-theme)
-(add-hook 'new-frame-hook 'wg/set-color-theme)
+;;(enable-theme 'solarized-dark)
 
 ;; Go jazz
 (require 'go-mode)
@@ -136,9 +79,6 @@
 ;; backed up in the corresponding directory. Emacs will mkdir it if necessary.)
 (defvar backup-dir (concat "~/emacs_backups/" (user-login-name) "/"))
 (setq backup-directory-alist (list (cons "." backup-dir)))
-
-;; Use firefox as our browser.
-(setq browse-url-netscape-program "firefox")
 
 ;;; find file at point
 (require 'ffap)
@@ -240,18 +180,27 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector ["#262626" "#d70000" "#5f8700" "#af8700" "#0087ff" "#af005f" "#00afaf" "#626262"])
+ '(background-color nil)
+ '(background-mode dark)
  '(bash-completion-nospace t)
+ '(before-save-hook (quote (gofmt-before-save)))
  '(browse-url-browser-function (quote browse-url-default-browser))
  '(column-number-mode t)
- '(custom-safe-themes (quote ("1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+ '(cursor-color nil)
+ '(custom-enabled-themes nil)
+ '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+ '(foreground-color nil)
+ '(java-mode-hook (quote (gcomplete-clang-completions-mode-func gcomplete-flymake-find-file (lambda nil (interactive) (column-marker-1 100)) google-set-java-style)))
  '(js2-bounce-indent-p t)
+ '(nxml-attribute-indent 2)
+ '(nxml-auto-insert-xml-declaration-flag t)
  '(rails-ws:default-server-type "mongrel")
  '(safe-local-variable-values (quote ((mmm-global-classes))))
  '(send-mail-function (quote sendmail-send-it))
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
- '(visible-bell nil)
- '(w32shell-cygwin-bin "C:\\tools\\cygwin\\bin"))
+ '(visible-bell nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -431,18 +380,18 @@ perform `dired-do-search' on all files in the *Find* buffer."
 (define-key dired-mode-map (kbd "F") 'find-grep-dired-do-search)
 
 
-(defalias 'xml-mode 'sgml-mode 
-    "Use `sgml-mode' instead of nXML's `xml-mode'.")
+;;(defalias 'xml-mode 'sgml-mode 
+;;    "Use `sgml-mode' instead of nXML's `xml-mode'.")
 
 ;; Why is this failing??
 ;;(define-key dired-mode-map (kbd "F") 'find-grep-dired)
 
 ;; When switch windows, make the one you're switching to 80 wide.
-(defadvice other-window (after other-window-now activate)
-  (if (< (window-width) 80)
-      (enlarge-window (- 81 (window-width)) t)
-      (shrink-window (- (window-width) 81) t)
-    ))
+;;(defadvice other-window (after other-window-now activate)
+;;  (if (< (window-width) 80)
+;;      (enlarge-window (- 81 (window-width)) t)
+;;      (shrink-window (- (window-width) 81) t)
+;;    ))
 
 (defun gnome-navigate-using-nautilus (filename)
   "gnome-opens the specified file."
@@ -478,6 +427,8 @@ perform `dired-do-search' on all files in the *Find* buffer."
 (add-to-list 'package-archives
 	     '("marmalade" .
 	       "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 ;Yasnippet
 (require 'yasnippet)
@@ -518,7 +469,7 @@ perform `dired-do-search' on all files in the *Find* buffer."
       (add-to-list 'package-archives
 		   '("gelpa" . 
 		     "http://internal-elpa.appspot.com/packages/"))
-      (load-file "/google/src/head/depot/eng/elisp/google.el")
+      (require 'google)
       (require 'p4-google)                ;; g4-annotate, improves find-file-at-point
       (require 'compilation-colorization) ;; colorizes output of (i)grep
       (require 'google3)                  ;; magically set paths for compiling google3 code
@@ -526,8 +477,6 @@ perform `dired-do-search' on all files in the *Find* buffer."
       (require 'csearch)                  ;; Search the whole Google code base.
       (require 'google-imports)           ;; Java google import magic.
       (require 'google-java)
-      ;; Autosave java imports
-      ;;(define-key java-mode-map (kbd "C-x C-s") 'google-java-save-buffer)
       (require 'google3-ffap)
       (setq ffap-alist (append (google3-ffap-alist-additions) ffap-alist))
       (require 'ffap-java)
@@ -538,8 +487,11 @@ perform `dired-do-search' on all files in the *Find* buffer."
       ;; auto-complete if you want it as well
       (gcomplete-setup-for-auto-complete)
       (require 'google-jswat)
-      (setq google-jdb-jswat-command "/google/src/files/head/depot/eng/elisp/third_party/gnuemacs/jswat/jswat-launcher")
+      (setq google-jdb-jswat-command "/google/src/files/head/depot/google3/devtools/editors/emacs/jswat/jswat-launcher")
       (remove-hook 'jdb-mode-hook 'google-jdb-fix-comint-prompt)
+      (add-hook 'java-mode-hook
+		'(lambda ()
+		   (add-hook 'before-save-hook 'google-imports-organize-imports)))
       ;;eng/elisp/third_party/gnuemacs/jswat/jswat-launcher
       (require 'google-autogen)
       (require 'rotate-among-files)
@@ -559,6 +511,11 @@ perform `dired-do-search' on all files in the *Find* buffer."
       (grok-init)
       ))
 
+;;(mapc
+;; (lambda (package)
+;;   (unless (package-installed-p package)
+;;     (package-install package)))
+;; '(s f dash flycheck prodigy ...))
 (package-initialize)
 
 
